@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next gemini use-motion" lang="">
+<html class="theme-next gemini use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="GitHub,SSH," />
 
 
 
@@ -79,23 +79,24 @@
 
 
 
-<meta name="description" content="SSH 是一种安全的通信协议，一般用来远程登录服务器。本地 Git 仓库和 GitHub 仓库之间的传输也可以使用 SSH 协议。在 GitHub 上，需要配置 SSH 公钥信息，这样每次在本地和 GitHub 进行传输的时候，就不需要提供密码了。 本地生成 SSH 公钥和私钥在命令行输入以下命令，生成 SSH 的公钥和私钥。 1$ ssh-keygen -t rsa -C &quot;xxxxx@xxxx">
+<meta name="description" content="SSH 是一种安全的通信协议，一般用来远程登录服务器。本地 Git 仓库和 GitHub 仓库之间的传输也可以使用 SSH 协议。在 GitHub 上，需要配置 SSH 公钥信息，这样每次在本地和 GitHub 进行传输的时候，就不需要提供密码了。">
+<meta name="keywords" content="GitHub,SSH">
 <meta property="og:type" content="article">
 <meta property="og:title" content="GitHub 服务器上配置 SSH 公钥">
 <meta property="og:url" content="http://yoursite.com/2018/08/19/GitHub-服务器上配置-SSH-公钥/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="SSH 是一种安全的通信协议，一般用来远程登录服务器。本地 Git 仓库和 GitHub 仓库之间的传输也可以使用 SSH 协议。在 GitHub 上，需要配置 SSH 公钥信息，这样每次在本地和 GitHub 进行传输的时候，就不需要提供密码了。 本地生成 SSH 公钥和私钥在命令行输入以下命令，生成 SSH 的公钥和私钥。 1$ ssh-keygen -t rsa -C &quot;xxxxx@xxxx">
-<meta property="og:locale" content="default">
+<meta property="og:site_name" content="zeronic">
+<meta property="og:description" content="SSH 是一种安全的通信协议，一般用来远程登录服务器。本地 Git 仓库和 GitHub 仓库之间的传输也可以使用 SSH 协议。在 GitHub 上，需要配置 SSH 公钥信息，这样每次在本地和 GitHub 进行传输的时候，就不需要提供密码了。">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2018/08/19/GitHub-服务器上配置-SSH-公钥/ssh-1.png">
 <meta property="og:image" content="http://yoursite.com/2018/08/19/GitHub-服务器上配置-SSH-公钥/ssh-2.png">
 <meta property="og:image" content="http://yoursite.com/2018/08/19/GitHub-服务器上配置-SSH-公钥/ssh-3.png">
 <meta property="og:image" content="http://yoursite.com/2018/08/19/GitHub-服务器上配置-SSH-公钥/ssh-4.png">
 <meta property="og:image" content="http://yoursite.com/2018/08/19/GitHub-服务器上配置-SSH-公钥/ssh-5.png">
 <meta property="og:image" content="http://yoursite.com/2018/08/19/GitHub-服务器上配置-SSH-公钥/ssh-6.png">
-<meta property="og:updated_time" content="2018-08-19T07:19:07.000Z">
+<meta property="og:updated_time" content="2018-08-19T09:52:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GitHub 服务器上配置 SSH 公钥">
-<meta name="twitter:description" content="SSH 是一种安全的通信协议，一般用来远程登录服务器。本地 Git 仓库和 GitHub 仓库之间的传输也可以使用 SSH 协议。在 GitHub 上，需要配置 SSH 公钥信息，这样每次在本地和 GitHub 进行传输的时候，就不需要提供密码了。 本地生成 SSH 公钥和私钥在命令行输入以下命令，生成 SSH 的公钥和私钥。 1$ ssh-keygen -t rsa -C &quot;xxxxx@xxxx">
+<meta name="twitter:description" content="SSH 是一种安全的通信协议，一般用来远程登录服务器。本地 Git 仓库和 GitHub 仓库之间的传输也可以使用 SSH 协议。在 GitHub 上，需要配置 SSH 公钥信息，这样每次在本地和 GitHub 进行传输的时候，就不需要提供密码了。">
 <meta name="twitter:image" content="http://yoursite.com/2018/08/19/GitHub-服务器上配置-SSH-公钥/ssh-1.png">
 
 
@@ -112,7 +113,7 @@
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
-      author: 'Author'
+      author: '博主'
     },
     algolia: {
       applicationID: '',
@@ -132,7 +133,7 @@
 
 
 
-  <title>GitHub 服务器上配置 SSH 公钥 | Hexo</title>
+  <title>GitHub 服务器上配置 SSH 公钥 | zeronic</title>
   
 
 
@@ -144,7 +145,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -162,7 +163,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Hexo</span>
+        <span class="site-title">zeronic</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -192,7 +193,27 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
           </a>
         </li>
       
@@ -202,7 +223,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            归档
           </a>
         </li>
       
@@ -242,13 +263,13 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/19/GitHub-服务器上配置-SSH-公钥/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
+      <meta itemprop="name" content="zeronic">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="zeronic">
     </span>
 
     
@@ -266,9 +287,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-19T14:41:11+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-19T14:41:11+08:00">
                 2018-08-19
               </time>
             
@@ -279,6 +300,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/服务器/" itemprop="url" rel="index">
+                    <span itemprop="name">服务器</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -287,6 +330,11 @@
           
           
 
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-eye"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
           
 
           
@@ -307,6 +355,7 @@
 
       
         <p>SSH 是一种安全的通信协议，一般用来远程登录服务器。本地 Git 仓库和 GitHub 仓库之间的传输也可以使用 SSH 协议。在 GitHub 上，需要配置 SSH 公钥信息，这样每次在本地和 GitHub 进行传输的时候，就不需要提供密码了。</p>
+<a id="more"></a>
 <h2 id="本地生成-SSH-公钥和私钥"><a href="#本地生成-SSH-公钥和私钥" class="headerlink" title="本地生成 SSH 公钥和私钥"></a>本地生成 SSH 公钥和私钥</h2><p>在命令行输入以下命令，生成 SSH 的公钥和私钥。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">"xxxxx@xxxxx.com"</span> <span class="comment"># 这里最好填写你注册 github 的邮箱</span></span><br></pre></td></tr></table></figure>
 <p>创建的公钥和私钥，会保存到 ~/.ssh 目录下。</p>
@@ -339,6 +388,14 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/GitHub/" rel="tag"># GitHub</a>
+          
+            <a href="/tags/SSH/" rel="tag"># SSH</a>
+          
+        </div>
       
 
       
@@ -411,10 +468,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
+            文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
+            站点概览
           </li>
         </ul>
       
@@ -423,8 +480,8 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <p class="site-author-name" itemprop="name">John Doe</p>
-              <p class="site-description motion-element" itemprop="description"></p>
+              <p class="site-author-name" itemprop="name">zeronic</p>
+              <p class="site-description motion-element" itemprop="description">Welcome to my blog</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -435,13 +492,31 @@
                 <a href="/archives/">
               
                   <span class="site-state-item-count">2</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
             
 
           </nav>
@@ -495,13 +570,13 @@
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">John Doe</span>
+  <span class="author" itemprop="copyrightHolder">zeronic</span>
 
   
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 
 
@@ -509,12 +584,32 @@
 
 
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
 
 
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
 
 
 
