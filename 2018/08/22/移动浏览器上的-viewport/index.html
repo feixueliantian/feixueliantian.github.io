@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="viewport,响应式布局," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="在阅读本文之前，先需要了解 设备像素、设备独立像素、CSS-像素 和 桌面浏览器上的 viewport。 1&amp;lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no&quot;&amp;gt; 相信写过移动网站页面的同学">
+<meta name="keywords" content="viewport,响应式布局">
+<meta property="og:type" content="article">
+<meta property="og:title" content="移动浏览器上的 viewport">
+<meta property="og:url" content="http://yoursite.com/2018/08/22/移动浏览器上的-viewport/index.html">
+<meta property="og:site_name" content="zeronic">
+<meta property="og:description" content="在阅读本文之前，先需要了解 设备像素、设备独立像素、CSS-像素 和 桌面浏览器上的 viewport。 1&amp;lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no&quot;&amp;gt; 相信写过移动网站页面的同学">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2018/08/22/移动浏览器上的-viewport/layout-viewport.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/08/22/移动浏览器上的-viewport/visual-viewport.jpg">
+<meta property="og:updated_time" content="2018-08-22T10:20:09.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="移动浏览器上的 viewport">
+<meta name="twitter:description" content="在阅读本文之前，先需要了解 设备像素、设备独立像素、CSS-像素 和 桌面浏览器上的 viewport。 1&amp;lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no&quot;&amp;gt; 相信写过移动网站页面的同学">
+<meta name="twitter:image" content="http://yoursite.com/2018/08/22/移动浏览器上的-viewport/layout-viewport.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/08/22/移动浏览器上的-viewport/"/>
+
+
+
+
+
+  <title>移动浏览器上的 viewport | zeronic</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">zeronic</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/22/移动浏览器上的-viewport/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zeronic">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zeronic">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">移动浏览器上的 viewport</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-22T10:17:53+08:00">
+                2018-08-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CSS/" itemprop="url" rel="index">
+                    <span itemprop="name">CSS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-eye"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>在阅读本文之前，先需要了解 <a href="/2018/08/21/三个像素：设备像素、设备独立像素、CSS-像素/" title="设备像素、设备独立像素、CSS-像素">设备像素、设备独立像素、CSS-像素</a> 和 <a href="/2018/08/22/桌面浏览器上的-viewport/" title="桌面浏览器上的 viewport">桌面浏览器上的 viewport</a>。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>相信写过移动网站页面的同学，都见过上面这句话，只要加上这句话，我们的网页便可以适配不同尺寸不同分辨率的移动设备。那么这句话的原理是什么呢？我们下面便详细介绍一下移动浏览器上 viewport 的作用。</p>
+<a id="more"></a>
+<p>移动浏览器上有三个 viewport，分别是 layout viewport，visual viewport，ideal viewport，每个 viewport 代表着不同的含义。不同的移动设备上，这三个 viewport 的尺寸也都不相同。我们一般只关心 viewport 的宽度，而不太关心 viewport 的高度。</p>
+<h2 id="layout-viewport"><a href="#layout-viewport" class="headerlink" title="layout viewport"></a>layout viewport</h2><p>layout viewport 是网页布局的区域，是 <code>&lt;html&gt;</code> 元素的父容器，对应着桌面浏览器的 viewport。<code>document.documentElement.clientWidth</code> 用来表示 layout viewport 水平方向能够展示的 CSS 像素。在手机上浏览宽大的网页 (这些网页没有采用响应式设计) 的时候，layout viewport 通常超出了手机屏幕的范围，你只能一次浏览网页的一个部分，然后通过手指滑动浏览其他部分。</p>
+<img src="/2018/08/22/移动浏览器上的-viewport/layout-viewport.jpg" title="layout viewport">
+<h2 id="visual-viewport"><a href="#visual-viewport" class="headerlink" title="visual viewport"></a>visual viewport</h2><p>visual viewport 就是通过手机屏幕能够看到的网页区域。</p>
+<img src="/2018/08/22/移动浏览器上的-viewport/visual-viewport.jpg" title="visual viewport">
+<h2 id="ideal-viewport"><a href="#ideal-viewport" class="headerlink" title="ideal viewport"></a>ideal viewport</h2><p>ideal viewport 不是某个区域，它是 <a href="/2018/08/21/三个像素：设备像素、设备独立像素、CSS-像素/" title="设备独立像素">设备独立像素</a>。</p>
+<h2 id="画布和窗户"><a href="#画布和窗户" class="headerlink" title="画布和窗户"></a>画布和窗户</h2><p>layout viewport 就像一块画布，网页上的元素就像画布上的画。visual viewport 就像一个窗户。我们站在窗户的一侧，通过窗户观看另一侧的画布上的画。画布的大小可以调整，当画布变大的时候，我们观察到的画的范围变小了(原来能看到画中的一张人脸，画布放大之后，只能看到一个眼睛了，但是这个眼睛的尺寸比原来大了)，当画布变小的时候，我们观察到的画的范围变多了。</p>
+<p>layout viewport 有自己的物理尺寸，也就是在物理空间上占据的长度单位，单位是厘米、英寸等。layout viewport 还有自己的逻辑尺寸，也就是 CSS 的像素，单位是 px。逻辑尺寸和物理尺寸是没有关联的，当我们通过缩放来改变 layout viewport 的物理尺寸时候，layout viewport 的 CSS 像素是不会变化的。CSS 宽度为 980px 的 layout viewport，不管怎么缩放，它的 CSS 宽度永远是 980px。我们平时很少关心 layout viewport 的物理尺寸，更多时候只需要关心 layout viewport 的 CSS 像素。由于 layout viewport 是 <code>&lt;html&gt;</code> 元素的父容器，<code>&lt;html&gt;</code> 元素的默认宽度为 100%，所以 layout viewport 的 CSS 宽度，限定了网页中所有元素的 CSS 的宽度。</p>
+<p>可以通过手动缩放来改变 layout viewport 的物理尺寸。当 layout viewport 物理尺寸变大的时候，就相当于画布变大了，虽然 layout viewport 的 CSS 像素不会发生变化，但是通过 visual viewport 能够观察到的 CSS 像素发生了变化。layout viewport 的物理尺寸越大，visual viewport 观察到的的 CSS 像素越少，相当于画布尺寸越大，我们通过窗户能够看到的画布的范围就越小。同理，layout viewport 的物理尺寸越小，visual viewport 的 CSS 像素越大。</p>
+<h2 id="设置-layout-viewport-的-CSS-宽度"><a href="#设置-layout-viewport-的-CSS-宽度" class="headerlink" title="设置 layout viewport 的 CSS 宽度"></a>设置 layout viewport 的 CSS 宽度</h2><p>不同型号的设备上，layout viewport 的 CSS 宽度的默认值不一样，iphone6 上默认是 980px。通过设置 <code>&lt;meta name=&quot;viewport&quot;&gt;</code> 标签的 width 属性可以设置 layout viewport 的 CSS 宽度。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=1000"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>上面的代码设置了 layout viewport 的 CSS 宽度为 1000px。我们查看 <code>document.documentElement.clientWidth</code> 值为 1000。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>上面的代码设置了 layout viewport 的 CSS 宽度为 ideal viewport 的宽度。</p>
+<p>除了 width 属性，还可以通过 initial-scale 属性来设置 layout viewport 的 CSS 宽度。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"initial-scale=1.0"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>上面代码设置了 layout viewport 的 CSS 宽度为 ideal viewport / 1 的宽度，也就是 ideal viewport 的宽度。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"initial-scale=2.0"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>上面代码设置了 layout viewport 的 CSS 宽度为 ideal viewport / 2.0 的宽度，也就是 ideal viewport 一半的宽度。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"initial-scale=0.5"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>上面代码设置了 layout viewport 的 CSS 宽度为 ideal viewport / 0.5 的宽度，也就是 ideal viewport 2 倍的宽度。</p>
+<p>既然 width 和 initial-scale 都可以设置 layout viewport 的 CSS 宽度，那么当这两个属性同时指定不同的值，layout viewport 的宽度会根据哪个属性来设置呢？答案是 layout viewport 的宽度取较大的值。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=400, initial-scale=1.0"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>上面的代码同时设置了 width 和 initial-scale 属性。如果是 iphone6 手机，它的 ideal viewport 值为 375px，因此 layout viewport 就等于 400px。如果是 iphone6 Plus 手机，它的 ideal viewport 值为 414px，因此 layout viewport 就等于 414px。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>上面的代码，保证了在任何手机上，layout viewport 的 CSS 宽度都是该手机的 ideal viewport 的宽度。其实理论上只设置这两个属性中的一个，都可以达到这样的效果，之所以要两个属性一起指定，是因为有些手机的某种型号的浏览器上有一些 bug，只指定一个属性的时候，不能够正确设置 layout viewport 的 CSS 宽度。</p>
+<h2 id="visual-viewport-的宽度"><a href="#visual-viewport-的宽度" class="headerlink" title="visual viewport 的宽度"></a>visual viewport 的宽度</h2><p>和 layout viewport 不一样，我们无法直接设置 visual viewport 的宽度，但是我们可以通过 <code>&lt;meta name=&quot;viewport&quot;&gt;</code> 标签设置 layout viewport 的宽度，来间接影响 visual viewport 的宽度。</p>
+<p>如果没有 <code>&lt;meta name=&quot;viewport&quot;&gt;</code> 标签，那么 layout viewport 取默认值，在 iphone6 上是 980px，这时的 visual viewport 也是 980px，也就是说，整张网页的宽度正好占满手机屏幕的宽度。</p>
+<p>如果为 <code>&lt;meta name=&quot;viewport&quot;&gt;</code> 标签设置了 width 属性，但是没有设置 initial-scale 属性，这时 visual viewport 会尽量显示整张网页的内容，也就是说整张网页的宽度正好占满手机屏幕的宽度，因此不会显示滚动条。这里的整张网页的宽度，并不一定等于 layout viewport 的宽度，有可能大于 layout viewport。假如我们设置 <code>&lt;meta name=&quot;viewport&quot; content=&quot;width=1000&quot;&gt;</code>，layout viewport 的宽度为 1000px，同时我们设置网页中的某个元素 <code>width: 1500px;</code>，那么 layout viiewport 的宽度并不会扩张，但是子元素会溢出，这时整张网页的宽度就是 1500px，visual viewport 的宽度也就是 1500px 了。但是 visual viewport 也不能无限扩大，它最大为手机屏幕物理像素的 2 倍。iphone6 的物理分辨率为 750 像素，因此 iphone6 的 visual viewport 最大为 1500px。假如我们设置某个元素为 <code>width: 5000px;</code>，或者设置 <code>&lt;meta name=&quot;viewport&quot; content=&quot;width=5000&quot;&gt;</code>，在 iphone6 上 visual viewport 为 1500px，网页中超出 1500px 的部分会显示滚动条。</p>
+<p>如果为 <code>&lt;meta name=&quot;viewport&quot;&gt;</code> 标签设置了 initial-scale 属性，不管是否设置了 width 属性，visual viewport 的值都与 layout viewport 的值相同，也就是说整个 layout viewport 会占满手机屏幕。注意 layout viewport 并不一定等于整张网页的宽度。网页的宽度可以大于 layout viewport (通过设置某个子元素的 width 大于 layout viewport)，网页的宽度也可以小于 layout viewport (通过设置 <code>&lt;html&gt;</code> 元素的 width 小于 layout viewport)。但是如果不做特殊设置，网页的宽度默认与 layout viewport 的宽度是相等的 (<code>&lt;html&gt;</code> 元素的 width 默认为 100%)。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"initial-scale=1.0"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>上面的代码，layout viewport、visual viewport、ideal viewport 的值相同，在 iphone6 上，都为 375px。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"initial-scale=2.0"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>上面的代码，layout viewport、visual viewport 都等于 ideal viewport 的一半，在 iphone6 上，都为 187.5px。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"initial-scale=0.5"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>上面的代码，layout viewport、visual viewport 都等于 ideal viewport 的 2 倍，在 iphone6 上，都为 750px。</p>
+<h2 id="禁止用于手动缩放"><a href="#禁止用于手动缩放" class="headerlink" title="禁止用于手动缩放"></a>禁止用于手动缩放</h2><p>为了实现同一个网页在不同手机浏览器上有相同的呈现效果，我们必须统一三个 viewport。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>通过上面的代码，我们便统一了 layout viewport 和 visual viewport，让它们都等于手机设备独立像素，也就是 ideal viewport 的值。</p>
+<p>但是用户缩放网页可以改变 layout viewport 的大小，这样当用户手动缩放网页的时候，布局有可能会乱掉。因此我们可以通过 <code>&lt;meta name=&quot;viewport&quot;&gt;</code> 标签的 user-scalable 属性来禁止用户手动缩放网页。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0, user-scalable=no"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>为了兼容不同移动设备的浏览器，我们最好再加上 maximum-scale 属性和 minimum-scale 属性。最终的 <code>&lt;meta name=&quot;viewport&quot;&gt;</code> 标签也就是我们文章开头所展示的那样了。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="媒体查询"><a href="#媒体查询" class="headerlink" title="媒体查询"></a>媒体查询</h2><p>在移动浏览器上，媒体查询中的 width height，代表 layout viewport 的宽度和高度，也就是 <code>document.documentElement.clientWidth</code> 和 <code>document.documentElement.clientHeight</code>。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">media</span> (min-width: <span class="number">320px</span>) &#123;</span><br><span class="line">  <span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面的代码表示，当 layout viewport &gt;= 320px 的时候，字体颜色为红色。</p>
+<p>在桌面浏览器上，媒体查询中的 device-width device-height，代表 ideal viewport 的宽度和高度，也就是 <code>screen.width</code> 和 <code>screen.height</code>。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">media</span> (min-device-width: <span class="number">320px</span>) &#123;</span><br><span class="line">  <span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面的代码表示，当 ideal viewport &gt;= 320px 的时候，字体颜色为红色。由于我们通常将三个 viewport 的值统一，所以一般我们在媒体查询的时候，只需要使用 width 和 height 就可以了。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/viewport/" rel="tag"># viewport</a>
+          
+            <a href="/tags/响应式布局/" rel="tag"># 响应式布局</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/22/桌面浏览器上的-viewport/" rel="next" title="桌面浏览器上的 viewport">
+                <i class="fa fa-chevron-left"></i> 桌面浏览器上的 viewport
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">zeronic</p>
+              <p class="site-description motion-element" itemprop="description">Welcome to my blog</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#layout-viewport"><span class="nav-number">1.</span> <span class="nav-text">layout viewport</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#visual-viewport"><span class="nav-number">2.</span> <span class="nav-text">visual viewport</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ideal-viewport"><span class="nav-number">3.</span> <span class="nav-text">ideal viewport</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#画布和窗户"><span class="nav-number">4.</span> <span class="nav-text">画布和窗户</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置-layout-viewport-的-CSS-宽度"><span class="nav-number">5.</span> <span class="nav-text">设置 layout viewport 的 CSS 宽度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#visual-viewport-的宽度"><span class="nav-number">6.</span> <span class="nav-text">visual viewport 的宽度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#禁止用于手动缩放"><span class="nav-number">7.</span> <span class="nav-text">禁止用于手动缩放</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#媒体查询"><span class="nav-number">8.</span> <span class="nav-text">媒体查询</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zeronic</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
