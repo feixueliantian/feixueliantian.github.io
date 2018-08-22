@@ -92,7 +92,7 @@
 <meta property="og:image" content="http://yoursite.com/2018/08/22/桌面浏览器上的-viewport/原尺寸.png">
 <meta property="og:image" content="http://yoursite.com/2018/08/22/桌面浏览器上的-viewport/放大.png">
 <meta property="og:image" content="http://yoursite.com/2018/08/22/桌面浏览器上的-viewport/缩小.png">
-<meta property="og:updated_time" content="2018-08-22T10:20:04.000Z">
+<meta property="og:updated_time" content="2018-08-22T10:25:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="桌面浏览器上的 viewport">
 <meta name="twitter:description" content="在阅读本文之前，先需要了解 设备像素、设备独立像素、CSS-像素。 viewport 是浏览器视口，代表浏览器的可视区域，也就是浏览器中用来显示网页的那部分区域。在桌面电脑上，由外到内分为显示器窗口、浏览器窗口、浏览器视口 (viewport)、&amp;lt;html&amp;gt; 元素、&amp;lt;body&amp;gt; 元素、其它元素。">
@@ -384,6 +384,10 @@
 <p>在桌面浏览器上，媒体查询中的 device-width device-height，代表显示器的物理像素，也就是 <code>screen.width</code> 和 <code>screen.height</code>。</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">media</span> (min-device-width: <span class="number">900px</span>) &#123;</span><br><span class="line">  <span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>上面的代码表示，当显示器分辨率宽度 &gt;= 900px 的时候，字体颜色为红色。我们一般不会用到 device-width 和 device-height。</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a href="http://www.cnblogs.com/2050/p/3877280.html" target="_blank" rel="noopener">移动前端开发之viewport的深入理解</a></li>
+<li><a href="https://www.jianshu.com/p/fb982ea8dce3" target="_blank" rel="noopener">响应式设计——layout viewport、visual viewport以及相关属性</a></li>
+</ul>
 
       
     </div>
@@ -560,7 +564,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#显示器窗口"><span class="nav-number">1.</span> <span class="nav-text">显示器窗口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器窗口"><span class="nav-number">2.</span> <span class="nav-text">浏览器窗口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器视口"><span class="nav-number">3.</span> <span class="nav-text">浏览器视口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lt-html-gt-元素"><span class="nav-number">4.</span> <span class="nav-text">&lt;html&gt; 元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lt-body-gt-元素"><span class="nav-number">5.</span> <span class="nav-text">&lt;body&gt; 元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拉伸收缩浏览器"><span class="nav-number">6.</span> <span class="nav-text">拉伸收缩浏览器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缩放浏览器"><span class="nav-number">7.</span> <span class="nav-text">缩放浏览器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#媒体查询"><span class="nav-number">8.</span> <span class="nav-text">媒体查询</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#显示器窗口"><span class="nav-number">1.</span> <span class="nav-text">显示器窗口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器窗口"><span class="nav-number">2.</span> <span class="nav-text">浏览器窗口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器视口"><span class="nav-number">3.</span> <span class="nav-text">浏览器视口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lt-html-gt-元素"><span class="nav-number">4.</span> <span class="nav-text">&lt;html&gt; 元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lt-body-gt-元素"><span class="nav-number">5.</span> <span class="nav-text">&lt;body&gt; 元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拉伸收缩浏览器"><span class="nav-number">6.</span> <span class="nav-text">拉伸收缩浏览器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缩放浏览器"><span class="nav-number">7.</span> <span class="nav-text">缩放浏览器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#媒体查询"><span class="nav-number">8.</span> <span class="nav-text">媒体查询</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">9.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
             
 
           </div>

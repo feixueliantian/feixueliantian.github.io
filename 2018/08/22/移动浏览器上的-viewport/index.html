@@ -89,7 +89,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2018/08/22/移动浏览器上的-viewport/layout-viewport.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/08/22/移动浏览器上的-viewport/visual-viewport.jpg">
-<meta property="og:updated_time" content="2018-08-22T10:20:09.000Z">
+<meta property="og:updated_time" content="2018-08-22T10:25:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="移动浏览器上的 viewport">
 <meta name="twitter:description" content="在阅读本文之前，先需要了解 设备像素、设备独立像素、CSS-像素 和 桌面浏览器上的 viewport。 1&amp;lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no&quot;&amp;gt; 相信写过移动网站页面的同学">
@@ -403,6 +403,10 @@
 <p>在桌面浏览器上，媒体查询中的 device-width device-height，代表 ideal viewport 的宽度和高度，也就是 <code>screen.width</code> 和 <code>screen.height</code>。</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">media</span> (min-device-width: <span class="number">320px</span>) &#123;</span><br><span class="line">  <span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>上面的代码表示，当 ideal viewport &gt;= 320px 的时候，字体颜色为红色。由于我们通常将三个 viewport 的值统一，所以一般我们在媒体查询的时候，只需要使用 width 和 height 就可以了。</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a href="http://www.cnblogs.com/2050/p/3877280.html" target="_blank" rel="noopener">移动前端开发之viewport的深入理解</a></li>
+<li><a href="https://www.jianshu.com/p/fb982ea8dce3" target="_blank" rel="noopener">响应式设计——layout viewport、visual viewport以及相关属性</a></li>
+</ul>
 
       
     </div>
@@ -575,7 +579,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#layout-viewport"><span class="nav-number">1.</span> <span class="nav-text">layout viewport</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#visual-viewport"><span class="nav-number">2.</span> <span class="nav-text">visual viewport</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ideal-viewport"><span class="nav-number">3.</span> <span class="nav-text">ideal viewport</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#画布和窗户"><span class="nav-number">4.</span> <span class="nav-text">画布和窗户</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置-layout-viewport-的-CSS-宽度"><span class="nav-number">5.</span> <span class="nav-text">设置 layout viewport 的 CSS 宽度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#visual-viewport-的宽度"><span class="nav-number">6.</span> <span class="nav-text">visual viewport 的宽度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#禁止用于手动缩放"><span class="nav-number">7.</span> <span class="nav-text">禁止用于手动缩放</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#媒体查询"><span class="nav-number">8.</span> <span class="nav-text">媒体查询</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#layout-viewport"><span class="nav-number">1.</span> <span class="nav-text">layout viewport</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#visual-viewport"><span class="nav-number">2.</span> <span class="nav-text">visual viewport</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ideal-viewport"><span class="nav-number">3.</span> <span class="nav-text">ideal viewport</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#画布和窗户"><span class="nav-number">4.</span> <span class="nav-text">画布和窗户</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置-layout-viewport-的-CSS-宽度"><span class="nav-number">5.</span> <span class="nav-text">设置 layout viewport 的 CSS 宽度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#visual-viewport-的宽度"><span class="nav-number">6.</span> <span class="nav-text">visual viewport 的宽度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#禁止用于手动缩放"><span class="nav-number">7.</span> <span class="nav-text">禁止用于手动缩放</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#媒体查询"><span class="nav-number">8.</span> <span class="nav-text">媒体查询</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">9.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
             
 
           </div>
