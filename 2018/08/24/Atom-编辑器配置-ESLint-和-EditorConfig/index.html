@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="GitHub,SSH," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -79,25 +79,21 @@
 
 
 
-<meta name="description" content="SSH 是一种安全的通信协议，一般用来远程登录服务器。本地 Git 仓库和 GitHub 仓库之间的传输也可以使用 SSH 协议。在 GitHub 上，需要配置 SSH 公钥信息，这样每次在本地和 GitHub 进行传输的时候，就不需要提供密码了。">
-<meta name="keywords" content="GitHub,SSH">
+<meta name="description" content="ESLint 是一个代码规范和语法错误检查工具。使用 ESLint 可以规范我们的代码书写，可以在编写代码期间就能发现一些低级错误。ESLint 需要结合编辑器或 IDE 使用。   EditorConfig 是一个保持缩进风格的一致的工具。当多人共同开发一个项目的时候，往往会出现每个人用不同编辑器的情况，而且有的人用 tab 缩进，有的人用 2 个空格缩进，有的人用 4 &amp;gt; 个空格缩进，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="GitHub 服务器上配置 SSH 公钥">
-<meta property="og:url" content="http://yoursite.com/2018/08/19/GitHub-服务器上配置-SSH-公钥/index.html">
+<meta property="og:title" content="Atom 编辑器配置 ESLint 和 EditorConfig">
+<meta property="og:url" content="http://yoursite.com/2018/08/24/Atom-编辑器配置-ESLint-和-EditorConfig/index.html">
 <meta property="og:site_name" content="zeronic">
-<meta property="og:description" content="SSH 是一种安全的通信协议，一般用来远程登录服务器。本地 Git 仓库和 GitHub 仓库之间的传输也可以使用 SSH 协议。在 GitHub 上，需要配置 SSH 公钥信息，这样每次在本地和 GitHub 进行传输的时候，就不需要提供密码了。">
+<meta property="og:description" content="ESLint 是一个代码规范和语法错误检查工具。使用 ESLint 可以规范我们的代码书写，可以在编写代码期间就能发现一些低级错误。ESLint 需要结合编辑器或 IDE 使用。   EditorConfig 是一个保持缩进风格的一致的工具。当多人共同开发一个项目的时候，往往会出现每个人用不同编辑器的情况，而且有的人用 tab 缩进，有的人用 2 个空格缩进，有的人用 4 &amp;gt; 个空格缩进，">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2018/08/19/GitHub-服务器上配置-SSH-公钥/ssh-1.png">
-<meta property="og:image" content="http://yoursite.com/2018/08/19/GitHub-服务器上配置-SSH-公钥/ssh-2.png">
-<meta property="og:image" content="http://yoursite.com/2018/08/19/GitHub-服务器上配置-SSH-公钥/ssh-3.png">
-<meta property="og:image" content="http://yoursite.com/2018/08/19/GitHub-服务器上配置-SSH-公钥/ssh-4.png">
-<meta property="og:image" content="http://yoursite.com/2018/08/19/GitHub-服务器上配置-SSH-公钥/ssh-5.png">
-<meta property="og:image" content="http://yoursite.com/2018/08/19/GitHub-服务器上配置-SSH-公钥/ssh-6.png">
-<meta property="og:updated_time" content="2018-08-19T09:52:40.000Z">
+<meta property="og:image" content="http://yoursite.com/2018/08/24/Atom-编辑器配置-ESLint-和-EditorConfig/linter.png">
+<meta property="og:image" content="http://yoursite.com/2018/08/24/Atom-编辑器配置-ESLint-和-EditorConfig/lint.png">
+<meta property="og:image" content="http://yoursite.com/2018/08/24/Atom-编辑器配置-ESLint-和-EditorConfig/editorconfig.png">
+<meta property="og:updated_time" content="2018-08-24T08:26:15.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="GitHub 服务器上配置 SSH 公钥">
-<meta name="twitter:description" content="SSH 是一种安全的通信协议，一般用来远程登录服务器。本地 Git 仓库和 GitHub 仓库之间的传输也可以使用 SSH 协议。在 GitHub 上，需要配置 SSH 公钥信息，这样每次在本地和 GitHub 进行传输的时候，就不需要提供密码了。">
-<meta name="twitter:image" content="http://yoursite.com/2018/08/19/GitHub-服务器上配置-SSH-公钥/ssh-1.png">
+<meta name="twitter:title" content="Atom 编辑器配置 ESLint 和 EditorConfig">
+<meta name="twitter:description" content="ESLint 是一个代码规范和语法错误检查工具。使用 ESLint 可以规范我们的代码书写，可以在编写代码期间就能发现一些低级错误。ESLint 需要结合编辑器或 IDE 使用。   EditorConfig 是一个保持缩进风格的一致的工具。当多人共同开发一个项目的时候，往往会出现每个人用不同编辑器的情况，而且有的人用 tab 缩进，有的人用 2 个空格缩进，有的人用 4 &amp;gt; 个空格缩进，">
+<meta name="twitter:image" content="http://yoursite.com/2018/08/24/Atom-编辑器配置-ESLint-和-EditorConfig/linter.png">
 
 
 
@@ -127,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/08/19/GitHub-服务器上配置-SSH-公钥/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/08/24/Atom-编辑器配置-ESLint-和-EditorConfig/"/>
 
 
 
 
 
-  <title>GitHub 服务器上配置 SSH 公钥 | zeronic</title>
+  <title>Atom 编辑器配置 ESLint 和 EditorConfig | zeronic</title>
   
 
 
@@ -260,7 +256,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/19/GitHub-服务器上配置-SSH-公钥/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/24/Atom-编辑器配置-ESLint-和-EditorConfig/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zeronic">
@@ -277,7 +273,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">GitHub 服务器上配置 SSH 公钥</h1>
+          <h1 class="post-title" itemprop="name headline">Atom 编辑器配置 ESLint 和 EditorConfig</h1>
         
 
         <div class="post-meta">
@@ -289,8 +285,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-19T14:41:11+08:00">
-                2018-08-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-24T15:12:25+08:00">
+                2018-08-24
               </time>
             
 
@@ -299,28 +295,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/服务器/" itemprop="url" rel="index">
-                    <span itemprop="name">服务器</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -354,26 +328,35 @@
       
 
       
-        <p>SSH 是一种安全的通信协议，一般用来远程登录服务器。本地 Git 仓库和 GitHub 仓库之间的传输也可以使用 SSH 协议。在 GitHub 上，需要配置 SSH 公钥信息，这样每次在本地和 GitHub 进行传输的时候，就不需要提供密码了。</p>
+        <blockquote>
+<p><a href="https://eslint.bootcss.com" target="_blank" rel="noopener">ESLint</a> 是一个代码规范和语法错误检查工具。使用 ESLint 可以规范我们的代码书写，可以在编写代码期间就能发现一些低级错误。ESLint 需要结合编辑器或 IDE 使用。</p>
+</blockquote>
+<blockquote>
+<p><a href="https://editorconfig.org" target="_blank" rel="noopener">EditorConfig</a> 是一个保持缩进风格的一致的工具。当多人共同开发一个项目的时候，往往会出现每个人用不同编辑器的情况，而且有的人用 tab 缩进，有的人用 2 个空格缩进，有的人用 4 &gt; 个空格缩进，EditorConfig 就是为了解决这个问题而诞生。EditorConfig 需要结合编辑器或 IDE 使用。</p>
+</blockquote>
 <a id="more"></a>
-<h2 id="本地生成-SSH-公钥和私钥"><a href="#本地生成-SSH-公钥和私钥" class="headerlink" title="本地生成 SSH 公钥和私钥"></a>本地生成 SSH 公钥和私钥</h2><p>在命令行输入以下命令，生成 SSH 的公钥和私钥。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">"xxxxx@xxxxx.com"</span> <span class="comment"># 这里最好填写你注册 github 的邮箱</span></span><br></pre></td></tr></table></figure>
-<p>创建的公钥和私钥，会保存到 ~/.ssh 目录下。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ls ~/.ssh</span><br><span class="line">id_rsa		id_rsa.pub	known_hosts</span><br></pre></td></tr></table></figure>
-<p>id_rsa 是私钥，id_rsa.pub 是公钥。通过以下命令查看公钥内容。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cat ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
-<h2 id="GitHub-上添加公钥"><a href="#GitHub-上添加公钥" class="headerlink" title="GitHub 上添加公钥"></a>GitHub 上添加公钥</h2><p>登录之后，点击右上角用户头像，点击 Settings 选项。</p>
-<img src="/2018/08/19/GitHub-服务器上配置-SSH-公钥/ssh-1.png">
-<p>点击左侧导航栏的 SSH and GPG keys 选项。</p>
-<img src="/2018/08/19/GitHub-服务器上配置-SSH-公钥/ssh-2.png">
-<p>点击 New SSH key 按钮。</p>
-<img src="/2018/08/19/GitHub-服务器上配置-SSH-公钥/ssh-3.png">
-<p>将本机的 SSH 公钥复制粘贴到 GitHub 上，然后点击 Add SSH key。</p>
-<img src="/2018/08/19/GitHub-服务器上配置-SSH-公钥/ssh-4.png">
-<p>输入 GitHub 账号的密码。</p>
-<img src="/2018/08/19/GitHub-服务器上配置-SSH-公钥/ssh-5.png">
-<p>到此，已经设置好了 SSH Keys 了。</p>
-<img src="/2018/08/19/GitHub-服务器上配置-SSH-公钥/ssh-6.png">
+<h2 id="配置-ESLint"><a href="#配置-ESLint" class="headerlink" title="配置 ESLint"></a>配置 ESLint</h2><p>在 Atom 编辑器中，安装插件 linter 和 linter-eslint。</p>
+<img src="/2018/08/24/Atom-编辑器配置-ESLint-和-EditorConfig/linter.png" title="linter 和 linter-eslint">
+<p>在项目目录中本地安装 eslint。由于我们没有选择全局安装 eslint，因此只要是想使用 eslint 的项目，都要本地安装 eslint，并且初始化生成一个 .eslintrc.json 的配置文件。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install eslint --save-dev</span><br></pre></td></tr></table></figure>
+<p>在项目目录中初始化 eslint 配置。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ./node_modules/.bin/eslint --init</span><br></pre></td></tr></table></figure>
+<p>依次选择以下选项：</p>
+<ul>
+<li>Use a popular style guide</li>
+<li>Standard</li>
+<li>JSON</li>
+</ul>
+<p>eslint 会创建一个 .eslintrc.json 的配置文件，同时自动安装并添加相关的模块到 devDependencies。这里我们使用 Standard 规范，其主要特点是不加分号。</p>
+<p>至此，在你的项目目录 (包括子目录) 中使用 Atom 编辑器编辑以 .js 结尾的文件时，ESLint 会自动检查你的语法是否符合规范。</p>
+<img src="/2018/08/24/Atom-编辑器配置-ESLint-和-EditorConfig/lint.png" title="红色的表示不符合规范">
+<h2 id="配置-EditorConfig"><a href="#配置-EditorConfig" class="headerlink" title="配置 EditorConfig"></a>配置 EditorConfig</h2><p>在 Atom 编辑器中，安装插件 editorconfig。</p>
+<img src="/2018/08/24/Atom-编辑器配置-ESLint-和-EditorConfig/editorconfig.png" title="editorconfig">
+<p>在项目目录中创建 .editorconfig 配置文件。具体配置文件可以参考 <a href="https://atom.io/packages/editorconfig" target="_blank" rel="noopener">https://atom.io/packages/editorconfig</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># editorconfig.org</span><br><span class="line">root = true</span><br><span class="line"></span><br><span class="line">[*]</span><br><span class="line">indent_style = space</span><br><span class="line">indent_size = 2</span><br><span class="line">end_of_line = lf</span><br><span class="line">charset = utf-8</span><br><span class="line">trim_trailing_whitespace = true</span><br><span class="line">insert_final_newline = true</span><br><span class="line">tab_width = 2</span><br><span class="line"></span><br><span class="line">[*.md]</span><br><span class="line">trim_trailing_whitespace = false</span><br><span class="line"></span><br><span class="line">[Makefile]</span><br><span class="line">indent_style = tab</span><br></pre></td></tr></table></figure>
+<p>这里我们使用 2 个空格缩进，tab 长度也是 2 个空格。trim_trailing_whitespace 用来删除每一行最后多余的空格，insert_final_newline 用来在代码最后插入一个空的换行。</p>
+<p>至此，在你的项目目录 (包括子目录) 中使用 Atom 编辑器编辑任何类型文件的时候，都会按照 editorconfig 的配置文件来自动处理空白字符。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://github.com/nswbmw/N-blog/blob/master/book/4.2%20%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C.md" target="_blank" rel="noopener">《一起学 Node.js》彻底重写完毕</a></p>
 
       
     </div>
@@ -389,14 +372,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/GitHub/" rel="tag"># GitHub</a>
-          
-            <a href="/tags/SSH/" rel="tag"># SSH</a>
-          
-        </div>
-      
 
       
       
@@ -406,15 +381,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/08/22/Rem-布局/" rel="next" title="Rem布局">
+                <i class="fa fa-chevron-left"></i> Rem布局
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/08/19/Hexo-搭建-GitHub-静态博客/" rel="prev" title="Hexo 搭建 GitHub 静态博客">
-                Hexo 搭建 GitHub 静态博客 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -546,7 +521,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#本地生成-SSH-公钥和私钥"><span class="nav-number">1.</span> <span class="nav-text">本地生成 SSH 公钥和私钥</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GitHub-上添加公钥"><span class="nav-number">2.</span> <span class="nav-text">GitHub 上添加公钥</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#配置-ESLint"><span class="nav-number">1.</span> <span class="nav-text">配置 ESLint</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置-EditorConfig"><span class="nav-number">2.</span> <span class="nav-text">配置 EditorConfig</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
