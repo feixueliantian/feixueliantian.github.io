@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="响应式布局," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -79,23 +79,17 @@
 
 
 
-<meta name="description" content="设备像素：屏幕上的真实像素点。iphone6 的设备像素 750 * 1334，也就是说 iphone6 屏幕上有 750 * 1334 个像素点。 设备独立像素：操作系统定义的一种长度单位。iphone6 的设备独立像素 375 * 667，正好是设备像素的一半。 CSS 像素：CSS 中的长度单位，在 CSS 中使用的 px 都是指 CSS 像素。  为了从视觉上更好的区别设备像素和设备独立">
-<meta name="keywords" content="响应式布局">
+<meta name="description" content="JavaScript 中的实例方法，大多定义在实例的原型对象上，比如 Array.prototype.push String.prototype.match Function.prototype.bind 等。当我们通过实例来调用这些方法的时候，方法作为实例的属性，调用方式为 arr.push(1, 2 ,3)。我们可以利用 call 函数来改变调用这些实例方法的方式，例如改造之后的 push 方">
 <meta property="og:type" content="article">
-<meta property="og:title" content="三个像素：设备像素、设备独立像素、CSS 像素">
-<meta property="og:url" content="http://yoursite.com/2018/08/21/三个像素：设备像素、设备独立像素、CSS-像素/index.html">
+<meta property="og:title" content="利用 call 来改变实例方法的调用方式">
+<meta property="og:url" content="http://yoursite.com/2018/09/19/利用-call-来改变原生函数的调用方式/index.html">
 <meta property="og:site_name" content="zeronic">
-<meta property="og:description" content="设备像素：屏幕上的真实像素点。iphone6 的设备像素 750 * 1334，也就是说 iphone6 屏幕上有 750 * 1334 个像素点。 设备独立像素：操作系统定义的一种长度单位。iphone6 的设备独立像素 375 * 667，正好是设备像素的一半。 CSS 像素：CSS 中的长度单位，在 CSS 中使用的 px 都是指 CSS 像素。  为了从视觉上更好的区别设备像素和设备独立">
+<meta property="og:description" content="JavaScript 中的实例方法，大多定义在实例的原型对象上，比如 Array.prototype.push String.prototype.match Function.prototype.bind 等。当我们通过实例来调用这些方法的时候，方法作为实例的属性，调用方式为 arr.push(1, 2 ,3)。我们可以利用 call 函数来改变调用这些实例方法的方式，例如改造之后的 push 方">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2018/08/21/三个像素：设备像素、设备独立像素、CSS-像素/iphone3.png">
-<meta property="og:image" content="http://yoursite.com/2018/08/21/三个像素：设备像素、设备独立像素、CSS-像素/iphone4.png">
-<meta property="og:image" content="http://yoursite.com/2018/08/21/三个像素：设备像素、设备独立像素、CSS-像素/iphone4-2.png">
-<meta property="og:image" content="http://yoursite.com/2018/08/21/三个像素：设备像素、设备独立像素、CSS-像素/分辨率.png">
-<meta property="og:updated_time" content="2018-08-24T11:52:50.000Z">
+<meta property="og:updated_time" content="2018-09-19T07:23:53.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="三个像素：设备像素、设备独立像素、CSS 像素">
-<meta name="twitter:description" content="设备像素：屏幕上的真实像素点。iphone6 的设备像素 750 * 1334，也就是说 iphone6 屏幕上有 750 * 1334 个像素点。 设备独立像素：操作系统定义的一种长度单位。iphone6 的设备独立像素 375 * 667，正好是设备像素的一半。 CSS 像素：CSS 中的长度单位，在 CSS 中使用的 px 都是指 CSS 像素。  为了从视觉上更好的区别设备像素和设备独立">
-<meta name="twitter:image" content="http://yoursite.com/2018/08/21/三个像素：设备像素、设备独立像素、CSS-像素/iphone3.png">
+<meta name="twitter:title" content="利用 call 来改变实例方法的调用方式">
+<meta name="twitter:description" content="JavaScript 中的实例方法，大多定义在实例的原型对象上，比如 Array.prototype.push String.prototype.match Function.prototype.bind 等。当我们通过实例来调用这些方法的时候，方法作为实例的属性，调用方式为 arr.push(1, 2 ,3)。我们可以利用 call 函数来改变调用这些实例方法的方式，例如改造之后的 push 方">
 
 
 
@@ -125,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/08/21/三个像素：设备像素、设备独立像素、CSS-像素/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/09/19/利用-call-来改变原生函数的调用方式/"/>
 
 
 
 
 
-  <title>三个像素：设备像素、设备独立像素、CSS 像素 | zeronic</title>
+  <title>利用 call 来改变实例方法的调用方式 | zeronic</title>
   
 
 
@@ -258,7 +252,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/21/三个像素：设备像素、设备独立像素、CSS-像素/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/19/利用-call-来改变原生函数的调用方式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zeronic">
@@ -275,7 +269,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">三个像素：设备像素、设备独立像素、CSS 像素</h1>
+          <h1 class="post-title" itemprop="name headline">利用 call 来改变实例方法的调用方式</h1>
         
 
         <div class="post-meta">
@@ -287,8 +281,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-21T15:51:08+08:00">
-                2018-08-21
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-19T14:47:07+08:00">
+                2018-09-19
               </time>
             
 
@@ -310,19 +304,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端/" itemprop="url" rel="index">
-                    <span itemprop="name">前端</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端/CSS/" itemprop="url" rel="index">
-                    <span itemprop="name">CSS</span>
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
                   </a>
                 </span>
 
@@ -363,29 +346,17 @@
       
 
       
-        <blockquote>
-<p>设备像素：屏幕上的真实像素点。iphone6 的设备像素 750 * 1334，也就是说 iphone6 屏幕上有 750 * 1334 个像素点。</p>
-<p>设备独立像素：操作系统定义的一种长度单位。iphone6 的设备独立像素 375 * 667，正好是设备像素的一半。</p>
-<p>CSS 像素：CSS 中的长度单位，在 CSS 中使用的 px 都是指 CSS 像素。</p>
-</blockquote>
-<p>为了从视觉上更好的区别设备像素和设备独立像素，下文中统一用物理像素来代表设备像素，用独立像素来代表设备独立像素。</p>
-<p>早期的移动设备，只有物理像素，没有独立像素，在不缩放的前提下，CSS 中的 1px 就代表着 1 个物理像素。比如 iphone3 的物理像素是 320 * 480，那么 <code>width: 320px;</code> 的元素将会占满 iphone3 的屏幕宽度。</p>
-<img src="/2018/08/21/三个像素：设备像素、设备独立像素、CSS-像素/iphone3.png">
-<p>从 iphone4 开始，苹果公司便推出了所谓的 Retina 屏，物理像素变成 640 * 960，但是屏幕尺寸没有变化，也就是说单位面积上的物理像素的数量增加了，或者说屏幕密度增加了。如果还按照原来那样，1px CSS 像素由 1 个物理像素来渲染， 那么 <code>width: 320px;</code> 的元素只会占据半个屏幕的宽度。原来在 iphone3 上能够占满屏的网页，在 iphone4 上只会占一半的屏幕，同时 <code>font-size: 20px;</code> 的字体在 iphone4 上的尺寸也会缩小。</p>
-<img src="/2018/08/21/三个像素：设备像素、设备独立像素、CSS-像素/iphone4.png">
-<p>为了让同一个网页在 iphone4 和 iphone3 上的有相同的显示效果，引入了独立像素的概念。iphone4 的独立像素为 320 * 480，是 iphone4 的物理像素的一半，和 iphone3 的物理像素一样。也就是说，iphone4 上的 1 个独立像素 == 2 个物理像素。在 iphone4 上，在不缩放的前提下，CSS 中的 1px 便由 1 个独立像素来渲染，相当于 2 个物理像素。这样，<code>width: 320px;</code> 的元素由 320 个独立像素来渲染，也就是由 640 个物理像素来渲染，正好占满 iphopn4 的屏幕宽度。<code>font-size: 20px;</code> 的字体在 iphone3 和 iphone4 上的尺寸也相同，只不过在 iphone4 上的字体更清楚。</p>
-<img src="/2018/08/21/三个像素：设备像素、设备独立像素、CSS-像素/iphone4-2.png">
-<p>我们已经知道，iphone4 上，1 个独立像素 == 2 个物理像素，但是不是所有的设备上都这样。下图展示了不同型号的 iphone 的物理像素和独立像素 (设备分辨率代表物理像素，逻辑分辨率代表独立像素)。</p>
-<img src="/2018/08/21/三个像素：设备像素、设备独立像素、CSS-像素/分辨率.png">
-<p>为了描述不同型号的手机物理像素和独立像素之间的关系，引入了一个新的概念：设备像素比 devicePixelRatio。在 js 中通过 <code>window.devicePixelRatio</code> 查看。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">devicePixelRatio = 物理像素 / 独立像素</span><br><span class="line"></span><br><span class="line">iphone3: devicePixelRatio = 320 / 320 = 1</span><br><span class="line">iphone4: devicePixelRatio = 640 / 320 = 2</span><br><span class="line">iphone6Plus: devicePixelRatio = 1242 / 414 = 3</span><br></pre></td></tr></table></figure>
-<p>在 media 查询中，resolution 就代表着 devicePixelRatio。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@media (min-resolution: 2dppx) &#123;</span><br><span class="line">  body &#123;</span><br><span class="line">    color: red;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>上面的代码表示，在 devicePixelRatio &gt;= 2 的设备上，字体颜色为红色。</p>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
-<li><a href="http://www.cnblogs.com/2050/p/3877280.html" target="_blank" rel="noopener">移动前端开发之viewport的深入理解</a></li>
-<li><a href="https://www.jianshu.com/p/6b1f94bfa263" target="_blank" rel="noopener">响应式设计——理解设备像素、设备独立像素和css像素</a></li>
-</ul>
+        <p>JavaScript 中的实例方法，大多定义在实例的原型对象上，比如 <code>Array.prototype.push</code> <code>String.prototype.match</code> <code>Function.prototype.bind</code> 等。当我们通过实例来调用这些方法的时候，方法作为实例的属性，调用方式为 <code>arr.push(1, 2 ,3)</code>。我们可以利用 <code>call</code> 函数来改变调用这些实例方法的方式，例如改造之后的 <code>push</code> 方法的调用方式为 <code>push(arr, &#39;red&#39;)</code>，将实例作为了方法的第一个参数。</p>
+<a id="more"></a>
+<p>以下代码是正常方式调用数组的 <code>push</code> 方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = []</span><br><span class="line">arr.push(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+<p><code>push</code> 方法定义在 <code>Array.prototype</code> 对象上，<code>arr.push()</code> 本质上是在 <code>arr</code> 对象上调用 <code>Array.prototype.push</code> 方法，因此以上代码可以改写为以下代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = []</span><br><span class="line"><span class="built_in">Array</span>.prototype.push.call(arr, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+<p>更进一步，<code>call</code> 方法定义在 <code>Function.prototype</code> 对象上，<code>Array.prototype.push.call()</code> 本质上是在 <code>Array.prototype.push</code> 这个函数对象上来调用 <code>Function.prototype.call</code> 方法，因此我们可以用 <code>bind</code> 来固定 <code>Function.prototype.call</code> 方法的 <code>this</code> 对象，使它指向 <code>Array.prototype.push</code> 函数对象。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = []</span><br><span class="line"><span class="keyword">const</span> push = <span class="built_in">Function</span>.prototype.call.bind(<span class="built_in">Array</span>.prototype.push)</span><br><span class="line">push(arr, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+<p>这样一来，调用 <code>push()</code> 方法就相当于调用 <code>Function.prototype.call.call(Array.prototype.push)</code>，也就相当于调用 <code>Array.prototype.push.call()</code> 方法了。至此，我们对 <code>push</code> 函数的的改造已经完成了。我们还可以利用该技巧来改造其他方法。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> slice   = <span class="built_in">Function</span>.prototype.call.bind(<span class="built_in">Array</span>.prototype.slice)</span><br><span class="line">slice(arr, <span class="number">0</span>, <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> match = <span class="built_in">Function</span>.prototype.call.bind(<span class="built_in">String</span>.prototype.match)</span><br><span class="line">match(str, /^\d+$/)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> bind = <span class="built_in">Function</span>.prototype.call.bind(<span class="built_in">Function</span>.prototype.bind)</span><br><span class="line">bind(func, context)</span><br></pre></td></tr></table></figure>
+<p>参考: <a href="https://wangdoc.com/javascript/oop/this.html#" target="_blank" rel="noopener">阮一峰 JavaScript 教程</a></p>
 
       
     </div>
@@ -401,12 +372,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/响应式布局/" rel="tag"># 响应式布局</a>
-          
-        </div>
-      
 
       
       
@@ -416,8 +381,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/19/Hexo-搭建-GitHub-静态博客/" rel="next" title="Hexo 搭建 GitHub 静态博客">
-                <i class="fa fa-chevron-left"></i> Hexo 搭建 GitHub 静态博客
+              <a href="/2018/09/19/throttle-函数与-debounce-函数/" rel="next" title="throttle 函数与 debounce 函数">
+                <i class="fa fa-chevron-left"></i> throttle 函数与 debounce 函数
               </a>
             
           </div>
@@ -425,10 +390,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/08/22/桌面浏览器上的-viewport/" rel="prev" title="桌面浏览器上的 viewport">
-                桌面浏览器上的 viewport <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -480,17 +441,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -550,22 +502,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">1.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
