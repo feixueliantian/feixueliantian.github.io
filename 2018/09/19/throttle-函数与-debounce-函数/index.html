@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="github,ssh," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -79,25 +79,17 @@
 
 
 
-<meta name="description" content="SSH 是一种安全的通信协议，一般用来远程登录服务器。本地 Git 仓库和 GitHub 仓库之间的传输也可以使用 SSH 协议。在 GitHub 上，需要配置 SSH 公钥信息，这样每次在本地和 GitHub 进行传输的时候，就不需要提供密码了。">
-<meta name="keywords" content="github,ssh">
+<meta name="description" content="某些操作会导致 DOM 事件频繁被触发，从而频繁调用事件监听函数，如果事件监听函数中执行的是 DOM 操作或加载资源等比较耗费计算机资源的任务时，会导致浏览器反应迟钝甚至崩溃。throttle 函数与 debounce 函数通过使用一些技巧，减少监听函数的执行频率，适用于浏览器的 resize、scroll 事件以及通过文本框 keyup 事件进行 Ajax 请求等操作。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="GitHub 服务器上配置 SSH 公钥">
-<meta property="og:url" content="http://yoursite.com/2018/08/19/GitHub-服务器上配置-SSH-公钥/index.html">
+<meta property="og:title" content="throttle 函数与 debounce 函数">
+<meta property="og:url" content="http://yoursite.com/2018/09/19/throttle-函数与-debounce-函数/index.html">
 <meta property="og:site_name" content="zeronic">
-<meta property="og:description" content="SSH 是一种安全的通信协议，一般用来远程登录服务器。本地 Git 仓库和 GitHub 仓库之间的传输也可以使用 SSH 协议。在 GitHub 上，需要配置 SSH 公钥信息，这样每次在本地和 GitHub 进行传输的时候，就不需要提供密码了。">
+<meta property="og:description" content="某些操作会导致 DOM 事件频繁被触发，从而频繁调用事件监听函数，如果事件监听函数中执行的是 DOM 操作或加载资源等比较耗费计算机资源的任务时，会导致浏览器反应迟钝甚至崩溃。throttle 函数与 debounce 函数通过使用一些技巧，减少监听函数的执行频率，适用于浏览器的 resize、scroll 事件以及通过文本框 keyup 事件进行 Ajax 请求等操作。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2018/08/19/GitHub-服务器上配置-SSH-公钥/ssh-1.png">
-<meta property="og:image" content="http://yoursite.com/2018/08/19/GitHub-服务器上配置-SSH-公钥/ssh-2.png">
-<meta property="og:image" content="http://yoursite.com/2018/08/19/GitHub-服务器上配置-SSH-公钥/ssh-3.png">
-<meta property="og:image" content="http://yoursite.com/2018/08/19/GitHub-服务器上配置-SSH-公钥/ssh-4.png">
-<meta property="og:image" content="http://yoursite.com/2018/08/19/GitHub-服务器上配置-SSH-公钥/ssh-5.png">
-<meta property="og:image" content="http://yoursite.com/2018/08/19/GitHub-服务器上配置-SSH-公钥/ssh-6.png">
-<meta property="og:updated_time" content="2018-08-24T11:50:20.000Z">
+<meta property="og:updated_time" content="2018-09-19T03:38:39.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="GitHub 服务器上配置 SSH 公钥">
-<meta name="twitter:description" content="SSH 是一种安全的通信协议，一般用来远程登录服务器。本地 Git 仓库和 GitHub 仓库之间的传输也可以使用 SSH 协议。在 GitHub 上，需要配置 SSH 公钥信息，这样每次在本地和 GitHub 进行传输的时候，就不需要提供密码了。">
-<meta name="twitter:image" content="http://yoursite.com/2018/08/19/GitHub-服务器上配置-SSH-公钥/ssh-1.png">
+<meta name="twitter:title" content="throttle 函数与 debounce 函数">
+<meta name="twitter:description" content="某些操作会导致 DOM 事件频繁被触发，从而频繁调用事件监听函数，如果事件监听函数中执行的是 DOM 操作或加载资源等比较耗费计算机资源的任务时，会导致浏览器反应迟钝甚至崩溃。throttle 函数与 debounce 函数通过使用一些技巧，减少监听函数的执行频率，适用于浏览器的 resize、scroll 事件以及通过文本框 keyup 事件进行 Ajax 请求等操作。">
 
 
 
@@ -127,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/08/19/GitHub-服务器上配置-SSH-公钥/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/09/19/throttle-函数与-debounce-函数/"/>
 
 
 
 
 
-  <title>GitHub 服务器上配置 SSH 公钥 | zeronic</title>
+  <title>throttle 函数与 debounce 函数 | zeronic</title>
   
 
 
@@ -260,7 +252,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/19/GitHub-服务器上配置-SSH-公钥/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/19/throttle-函数与-debounce-函数/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zeronic">
@@ -277,7 +269,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">GitHub 服务器上配置 SSH 公钥</h1>
+          <h1 class="post-title" itemprop="name headline">throttle 函数与 debounce 函数</h1>
         
 
         <div class="post-meta">
@@ -289,8 +281,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-19T14:41:11+08:00">
-                2018-08-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-19T10:45:10+08:00">
+                2018-09-19
               </time>
             
 
@@ -312,8 +304,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/服务器/" itemprop="url" rel="index">
-                    <span itemprop="name">服务器</span>
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
                   </a>
                 </span>
 
@@ -354,26 +346,14 @@
       
 
       
-        <p>SSH 是一种安全的通信协议，一般用来远程登录服务器。本地 Git 仓库和 GitHub 仓库之间的传输也可以使用 SSH 协议。在 GitHub 上，需要配置 SSH 公钥信息，这样每次在本地和 GitHub 进行传输的时候，就不需要提供密码了。</p>
+        <p>某些操作会导致 DOM 事件频繁被触发，从而频繁调用事件监听函数，如果事件监听函数中执行的是 DOM 操作或加载资源等比较耗费计算机资源的任务时，会导致浏览器反应迟钝甚至崩溃。throttle 函数与 debounce 函数通过使用一些技巧，减少监听函数的执行频率，适用于浏览器的 resize、scroll 事件以及通过文本框 keyup 事件进行 Ajax 请求等操作。</p>
 <a id="more"></a>
-<h2 id="本地生成-SSH-公钥和私钥"><a href="#本地生成-SSH-公钥和私钥" class="headerlink" title="本地生成 SSH 公钥和私钥"></a>本地生成 SSH 公钥和私钥</h2><p>在命令行输入以下命令，生成 SSH 的公钥和私钥。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">"xxxxx@xxxxx.com"</span> <span class="comment"># 这里最好填写你注册 github 的邮箱</span></span><br></pre></td></tr></table></figure>
-<p>创建的公钥和私钥，会保存到 ~/.ssh 目录下。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ls ~/.ssh</span><br><span class="line">id_rsa		id_rsa.pub	known_hosts</span><br></pre></td></tr></table></figure>
-<p>id_rsa 是私钥，id_rsa.pub 是公钥。通过以下命令查看公钥内容。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cat ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
-<h2 id="GitHub-上添加公钥"><a href="#GitHub-上添加公钥" class="headerlink" title="GitHub 上添加公钥"></a>GitHub 上添加公钥</h2><p>登录之后，点击右上角用户头像，点击 Settings 选项。</p>
-<img src="/2018/08/19/GitHub-服务器上配置-SSH-公钥/ssh-1.png">
-<p>点击左侧导航栏的 SSH and GPG keys 选项。</p>
-<img src="/2018/08/19/GitHub-服务器上配置-SSH-公钥/ssh-2.png">
-<p>点击 New SSH key 按钮。</p>
-<img src="/2018/08/19/GitHub-服务器上配置-SSH-公钥/ssh-3.png">
-<p>将本机的 SSH 公钥复制粘贴到 GitHub 上，然后点击 Add SSH key。</p>
-<img src="/2018/08/19/GitHub-服务器上配置-SSH-公钥/ssh-4.png">
-<p>输入 GitHub 账号的密码。</p>
-<img src="/2018/08/19/GitHub-服务器上配置-SSH-公钥/ssh-5.png">
-<p>到此，已经设置好了 SSH Keys 了。</p>
-<img src="/2018/08/19/GitHub-服务器上配置-SSH-公钥/ssh-6.png">
+<h2 id="throttle-函数"><a href="#throttle-函数" class="headerlink" title="throttle 函数"></a>throttle 函数</h2><p>throttle 函数又称为节流函数。我们可以把水滴理解成事件监听函数，如果我们打开水龙头，水滴会连续不断地涌出，就相当于事件监听函数会连续不断地执行。如果我们将水龙头拧到最小，让水滴一滴一滴地流出，就相当于我们让事件监听函数按照一定的时间间隔来执行。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">throttle</span> (<span class="params">func, wait</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> lastInvokeTime = <span class="number">0</span></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> time = <span class="built_in">Date</span>.now()</span><br><span class="line">    <span class="keyword">if</span> (time - lastInvokeTime &gt;= wait) &#123;</span><br><span class="line">      func()</span><br><span class="line">      lastInvokeTime = time</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// handler 是事件监听函数</span></span><br><span class="line"><span class="keyword">var</span> handler = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'throttle'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.onscroll = throttle(handler, <span class="number">300</span>)</span><br></pre></td></tr></table></figure>
+<p>以上代码中，当连续触发 window 的 scroll 事件的时候，不会连续调用 handler 函数，会保证 handler 函数连续调用的最小时间间隔为 300 毫秒。</p>
+<h2 id="debounce-函数"><a href="#debounce-函数" class="headerlink" title="debounce 函数"></a>debounce 函数</h2><p>debounce 函数又称为防抖动函数。我们可以把拍照理解成事件监听函数，当我们按下快门的时候，手可能在抖动，这时候照相机不会立即拍照，它会等待我们的手停止抖动之后再拍照，就相当于当我们连续触发事件的时候，事件监听函数不会立即执行，而是等我们一段时间内不再触发事件的时候，再执行事件监听函数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">debounce</span> (<span class="params">func, wait</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> timer = <span class="literal">null</span></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    clearTimeout(timer)</span><br><span class="line">    timer = setTimeout(func, wait)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// handler 是事件监听函数</span></span><br><span class="line"><span class="keyword">var</span> handler = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'debounce'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.onscroll = debounce(handler, <span class="number">300</span>)</span><br></pre></td></tr></table></figure>
+<p>以上代码中，当连续触发 window 的 scroll 事件的时候，不会连续调用 handler 函数，会等到持续 300 毫秒都没有 scroll 事件触发的时候，才调用 handler 函数。</p>
 
       
     </div>
@@ -389,14 +369,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/github/" rel="tag"># github</a>
-          
-            <a href="/tags/ssh/" rel="tag"># ssh</a>
-          
-        </div>
-      
 
       
       
@@ -406,15 +378,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/08/29/CSS-清除浮动/" rel="next" title="CSS 清除浮动">
+                <i class="fa fa-chevron-left"></i> CSS 清除浮动
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/08/19/Hexo-搭建-GitHub-静态博客/" rel="prev" title="Hexo 搭建 GitHub 静态博客">
-                Hexo 搭建 GitHub 静态博客 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -546,7 +518,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#本地生成-SSH-公钥和私钥"><span class="nav-number">1.</span> <span class="nav-text">本地生成 SSH 公钥和私钥</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GitHub-上添加公钥"><span class="nav-number">2.</span> <span class="nav-text">GitHub 上添加公钥</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#throttle-函数"><span class="nav-number">1.</span> <span class="nav-text">throttle 函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#debounce-函数"><span class="nav-number">2.</span> <span class="nav-text">debounce 函数</span></a></li></ol></div>
             
 
           </div>
