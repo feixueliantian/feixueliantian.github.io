@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="每个文本编辑器都有默认的编码方式(比如 UTF-8 编码)，当我们保存文档的时候，可以选择编码方式，如果没有特意选择编码方式，文本编辑器就会以默认的编码方式将文本内容转换为二进制，存储到计算机的硬盘里。我们打开文本编辑器，新建一篇文档，只输入两个汉字 你好，然后以 UTF-8 的编码方式保存文档，那么硬盘里存储的是二进制的数据 11100100 10111101 10100000 11100101">
+<meta property="og:type" content="article">
+<meta property="og:title" content="字符编码那些事儿">
+<meta property="og:url" content="http://yoursite.com/2018/09/20/字符编码那些事儿/index.html">
+<meta property="og:site_name" content="zeronic">
+<meta property="og:description" content="每个文本编辑器都有默认的编码方式(比如 UTF-8 编码)，当我们保存文档的时候，可以选择编码方式，如果没有特意选择编码方式，文本编辑器就会以默认的编码方式将文本内容转换为二进制，存储到计算机的硬盘里。我们打开文本编辑器，新建一篇文档，只输入两个汉字 你好，然后以 UTF-8 的编码方式保存文档，那么硬盘里存储的是二进制的数据 11100100 10111101 10100000 11100101">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2018/09/20/字符编码那些事儿/ascii.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/20/字符编码那些事儿/base64.png">
+<meta property="og:updated_time" content="2018-09-21T02:18:28.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="字符编码那些事儿">
+<meta name="twitter:description" content="每个文本编辑器都有默认的编码方式(比如 UTF-8 编码)，当我们保存文档的时候，可以选择编码方式，如果没有特意选择编码方式，文本编辑器就会以默认的编码方式将文本内容转换为二进制，存储到计算机的硬盘里。我们打开文本编辑器，新建一篇文档，只输入两个汉字 你好，然后以 UTF-8 的编码方式保存文档，那么硬盘里存储的是二进制的数据 11100100 10111101 10100000 11100101">
+<meta name="twitter:image" content="http://yoursite.com/2018/09/20/字符编码那些事儿/ascii.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/09/20/字符编码那些事儿/"/>
+
+
+
+
+
+  <title>字符编码那些事儿 | zeronic</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">zeronic</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/20/字符编码那些事儿/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zeronic">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zeronic">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">字符编码那些事儿</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-20T14:29:42+08:00">
+                2018-09-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JS/" itemprop="url" rel="index">
+                    <span itemprop="name">JS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-eye"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>每个文本编辑器都有默认的编码方式(比如 UTF-8 编码)，当我们保存文档的时候，可以选择编码方式，如果没有特意选择编码方式，文本编辑器就会以默认的编码方式将文本内容转换为二进制，存储到计算机的硬盘里。我们打开文本编辑器，新建一篇文档，只输入两个汉字 <code>你好</code>，然后以 UTF-8 的编码方式保存文档，那么硬盘里存储的是二进制的数据 <code>11100100 10111101 10100000 11100101 10100101 10111101</code>。以上这种，将文本字符按照某种规则转换为二进制数据的过程，就称之为编码。反过来，将二进制数据按照某种规则转换为文本字符的过程，就称之为解码，比如用文本编辑器打开一篇已经存在的文档，文本编辑器会根据文档的编码方式，将硬盘里的二进制数据转换为文本字符显示出来。</p>
+<a id="more"></a>
+<h2 id="字符集和字符编码"><a href="#字符集和字符编码" class="headerlink" title="字符集和字符编码"></a>字符集和字符编码</h2><p>我们先来看几个概念：</p>
+<ul>
+<li>编码：按照某种规则，将字符转换为二进制数存储在计算机中</li>
+<li>解码：按照某种规则，将计算机中存储的二进制数转换为字符，显示出来</li>
+<li>字符集：文字符号的集合，比如 ASCII 字符集、GB2312 字符集、Unicode 字符集</li>
+<li>字符编码：是一套法则，将字符集转换为二进制数</li>
+</ul>
+<h3 id="ASCII-字符集和字符编码"><a href="#ASCII-字符集和字符编码" class="headerlink" title="ASCII 字符集和字符编码"></a>ASCII 字符集和字符编码</h3><p>ASCII（American Standard Code for Information Interchange，美国信息交换标准代码）是基于拉丁字母的一套电脑编码系统。它主要用于显示现代英语，而其扩展版本 EASCII 则可以勉强显示其他西欧语言。它是现今最通用的单字节编码系统（但是有被 Unicode 追上的迹象），并等同于国际标准ISO/IEC 646。</p>
+<ul>
+<li>ASCII 字符集：一共包括 128 个字符，主要包括控制字符（回车键、退格、换行键等），可显示字符（英文大小写字符、阿拉伯数字和西文符号）。</li>
+<li>ASCII 编码：将 ASCII 字符集转换为二进制数的规则，使用 7 位（bits）表示一个字符。</li>
+<li>EASCII 字符集：一共包括 256 个字符，在 ASCII 字符集的基础上，扩展了一些欧洲常用字符。</li>
+<li>EASCII 编码：将 EASCII 字符集转换为二进制数据的规则，使用 8 位（bits）也就是一个字节表示一个字符。</li>
+</ul>
+<p>ASCII 字符集映射到数字编码规则如下图所示：</p>
+<img src="/2018/09/20/字符编码那些事儿/ascii.png">
+<h3 id="GB2312-字符集和字符编码"><a href="#GB2312-字符集和字符编码" class="headerlink" title="GB2312 字符集和字符编码"></a>GB2312 字符集和字符编码</h3><p>计算机发明之处及后面很长一段时间，只用应用于美国及西方一些国家，ASCII 能够很好满足用户的需求。但是当中国也有了计算机之后，为了显示中文，必须设计一套编码规则用于将汉字转换为计算机可以接受的数字系统的数。于是在 ASCII 字符集的基础上，扩展出了 GB2312 字符集。GB2312 字符集规定：一个小于 127 的字符的意义与原来相同，但两个大于 127 的字符连在一起时，就表示一个汉字，前面的一个字节（称之为高字节）从 0xA1 到 0xF7，后面一个字节（低字节）从 0xA1 到 0xFE，这样我们就可以组合出大约 7000 多个简体汉字了。在这些编码里，还把数学符号、罗马希腊的 字母、日文的假名们都编进去了，连在 ASCII 里本来就有的数字、标点、字母都统统重新编了两个字节长的编码，这就是常说的 “全角” 字符，而原来在 127 号以下的那些就叫 “半角” 字符了。</p>
+<ul>
+<li>GB2312 字符集：在 ASCII 字符集的基础上，扩展了 7000 多个简体汉字以及标点符号等字符。</li>
+<li>GB2312 字符编码：将 GB2312 字符集转换为二进制数据的规则，属于 ASCII 字符集的字符占一个字节，中文（包括全角标点符号）占两个字节。</li>
+</ul>
+<h3 id="Unicode-字符集和字符编码"><a href="#Unicode-字符集和字符编码" class="headerlink" title="Unicode 字符集和字符编码"></a>Unicode 字符集和字符编码</h3><p>Unicode 是为了解决传统的字符编码方案的局限而产生的，它为每种语言中的每个字符设定了统一并且唯一的二进制编码，以满足跨语言、跨平台进行文本转换、处理的要求。Unicode 字符集中每个字符对应的二进制数，又称之为 Unicode 码点，如果用十进制来表示码点，常用字符的码点在 0-65535 范围之内，码点超过 65535 的字符叫做辅助平面(星芒层)。Unicode 是字符集，UTF-32 / UTF-16 / UTF-8 是三种字符编码方案。</p>
+<ul>
+<li>Unicode 字符集：包含世界上所有语言的文字和符号。</li>
+<li>Unicode 码点：每个字符对应一个 Unicode 编码号，常用的在 0-65535，编码号超过 65535 的字符叫做辅助平面(星芒层)。</li>
+<li>UTF-32 编码：每个字符都用四个字节来存储。</li>
+<li>UTF-16 编码：0-65535 的字符用两个字节存储，辅助平面的用四个字节存储。</li>
+<li>UTF-8 编码：属于 ASCII 字符集的字符用一个字节存储，带有附加符号的拉丁文、希腊文、西里尔字母、亚美尼亚语、希伯来文、阿拉伯文、叙利亚文及它拿字母需要两个字节，汉字需要三个字节，辅助平面四个字节。</li>
+</ul>
+<h2 id="JavaScript-字符集"><a href="#JavaScript-字符集" class="headerlink" title="JavaScript 字符集"></a>JavaScript 字符集</h2><p>JavaScript 使用 Unicode 字符集，使用 UTF-16 编码方式。<code>var foo = &#39;你好&#39;</code> 这段代码为变量 <code>foo</code> 赋值了一个字符串，JavaScript 引擎运行时会在内存中分配一部分区域来保存该字符串。由于内存中存储的都是二进制数据，所以需要将字符串 <code>你好</code> 按照 UTF-16 编码方式转换为二进制，所以内存中保存的是 <code>01001111 01100000 01011001 01111101</code>。注意 UTF-16 只是 JavaScript 引擎的编码方式，而不是 JavaScript 文档保存时的编码方式。如果通过文本编辑器将这段 JavaScript 代码所在的文档以 UTF-8 的编码方式保存在硬盘里，那么文档中 <code>你好</code> 这两个字符会按照 UTF-8 编码方式转换为二进制 <code>11100100 10111101 10100000 11100101 10100101 10111101</code>。也就是说<strong>硬盘</strong>里保存的是 UTF-8 编码的二进制数据，而<strong>内存</strong>里保存的是 UTF-16 编码的二进制数据。</p>
+<h2 id="URL-的编码和解码"><a href="#URL-的编码和解码" class="headerlink" title="URL 的编码和解码"></a>URL 的编码和解码</h2><p>网页的 URL 只能包含合法的字符，这可以分成两类。</p>
+<blockquote>
+<p>URL 元字符：分号（;），逗号（,），斜杠（/），问号（?），冒号（:），at（@），&amp;，等号（=），加号（+），美元符号（$），井号（#）<br>语义字符：a-z，A-Z，0-9，连词号（-），下划线（_），点（.），感叹号（!），波浪线（~），星号（*），单引号（’），圆括号（()）</p>
+</blockquote>
+<p>除了以上字符，其他字符出现在 URL 之中都必须转义，规则是根据操作系统的默认编码，将每个字节转为百分号（%）加上两个大写的十六进制字母。比如，UTF-8 的操作系统上，<code>http://www.example.com/q=春节这个</code> URL 之中，汉字“春节”不是 URL 的合法字符，所以被浏览器自动转成 <code>http://www.example.com/q=%E6%98%A5%E8%8A%82</code>。其中，“春”转成了<code>%E6%98%A5</code>，“节”转成了<code>%E8%8A%82</code>。这是因为“春”和”节“的 UTF-8 编码分别是<code>E6 98 A5</code>和<code>E8 8A 82</code>，将每个字节前面加上百分号，就构成了 URL 编码。</p>
+<p>JavaScript 提供四个 URL 的编码/解码方法。</p>
+<ul>
+<li>encodeURI()</li>
+<li>encodeURIComponent()</li>
+<li>decodeURI()</li>
+<li>decodeURIComponent()</li>
+</ul>
+<p>encodeURI() 会将元字符和语义字符之外的字符，都进行转义，用于转码整个 URL。<br>encodeURIComponent() 转码除了语义字符之外的所有字符，即元字符也会被转码。所以，它不能用于转码整个 URL，常用于转码 URL 片段。<br>decodeURI() 是 encodeURI() 方法的逆操作。<br>decodeURIComponent() 是 encodeURIComponent() 方法的逆操作。</p>
+<h2 id="文本格式与二进制格式"><a href="#文本格式与二进制格式" class="headerlink" title="文本格式与二进制格式"></a>文本格式与二进制格式</h2><p>文件一般分为文本文件和二进制文件。在计算机中，数据都是以二进制的方式存储的，所以不管是文本文件还是二进制文件，在计算机的内存或硬盘里，都是以二进制的方式保存的。当我们读取文本文件时，需要按照文件的字符编码方式 (比如 UTF-8) 来解码，将计算机中存储的二进制数据转换为文本字符，在客户端显示出来。当我们读取二进制文件时，需要根据不同类型二进制文件的编码方式 (比如 JPEG MP3) 来解码，将计算机中存储的二进制数据转换为图片视频等形式，在客户端显示出来。</p>
+<p>网络协议也可以分为文本协议和二进制协议。在网络传输中，数据都是以二进制的方式流动的，所以网络设备接收到的数据包都是二进制的。当通过文本协议接收到数据包后，首先需要根据文本协议的编码方式 (比如 UTF-8)，将数据包中的二进制数据进行解码，转换为文本字符，然后再进行相关操作。比如 HTTP 协议就是文本协议，当客户端接收到服务器响应的一段数据之后，首先将二进制数据包转换为文本字符，假设文本字符中有这么一段内容 <code>Content-type: text/html</code>，根据 HTTP 协议的规定，这是说服务器响应的数据类型是 HTML 文档，那么客户端便可以将响应的数据按照 HTML 文档格式来解析。可见，如果网络协议是文本协议，数据接收方必须先将二进制数据转换为文本数据之后才能得到信息，也就是说所有的信息都是以文本的方式来传达的。</p>
+<p>如果网络协议是二进制的协议，那么数据接收方直接根据二进制数据便可以获得信息，不需要将二进制数据转换为文本数据。假设根据某种二进制协议，数据中的第一个字节代表这段数据的类型，比如 1 代表 TEXT 文本，2 代表 HTML 文档，3 代表 JPEG 图片 … 当客户端接收到了一段如下的数据：<code>00000010 10010000 00100101 ...</code>，那么根据第一个字节 <code>00000010</code>，便知道这段数据是一篇 HTML 文档，然后客户端会按照 HTML 文档的方式来解析。这就相当于文本协议中的 <code>Content-type: text/html</code>。</p>
+<p>由此可见，网络传输时候，二进制协议的数据所占的体积更小，而且不需要先将二进制数据转换为文本格式，因此效率更高。</p>
+<h2 id="编码转换方式"><a href="#编码转换方式" class="headerlink" title="编码转换方式"></a>编码转换方式</h2><p>ASCII 字符集中，有一部分是不可见字符，比如 ASCII 码位在 0-31 的字符都是不可见的。的在网络上交换数据时，比如说从 A 地传到 B 地，往往要经过多个路由设备，不同的设备对字符的处理方式有一些不同，那些不可见字符就有可能被处理错误，这是不利于传输的。另外一些网络协议(比如电子邮件)或者网络设备不能处理非 ASCII 字符集中的字符，因此我们在传输数据前，可以按照某种编码方式，先将数据中的所有字符都转换为 ASCII 字符集中的可见字符，然后再进行传输。常见的编码转换方式有 Quoted-printable 和 Base64。</p>
+<h3 id="Quoted-printable-编码"><a href="#Quoted-printable-编码" class="headerlink" title="Quoted-printable 编码"></a>Quoted-printable 编码</h3><p>简单来说，Quoted-printable 编码就是将每一个 8 位的字节，转换为三个字符。第一个字符是 “=” 号，这是固定不变的。后面二个字符是二个十六进制数，分别代表了这个字节前四位和后四位的数值。如果某个 8 位的字节是可打印的 ASCII 码字符（十进制值从 33 到 126），那么该字节保持原样不变，”=”（十进制值61）除外。下面详细介绍 Quoted-printable 编码的转换规则。</p>
+<p>数据在计算机中以二进制存储，Quoted-printable 编码以 8 位的字节为单位转换数据。如果某个 8 位的字节是可打印的 ASCII 码字符（十进制值从 33 到 126），那么该字节保持原样不变， “=”（十进制值 61）除外。如果某个 8 位的字节是不可打印字符 (十进制值 0-31 127)，或者是 “=” 号 (十进制值 61)，则该字节需要转换。具体转换规则如下：将该字节转换为三个字节，第一个字节固定为 “=” 号的 ASCII 编码 <code>00111101</code>；第二个字节取原来字节的前 4 个 bit 位，然后前面补上 4 个 0；第三个字节取原来字节的后 4 个 bit 位，然后前面补上 4 个 0。</p>
+<p>举例来说，字符串 <code>A严B</code> 按照 UTF-8 编码转换为二进制 <code>01000001 11100100 10111000 10100101 01000010</code> 存储在计算机中。我们对该数据进行 Quoted-printable 编码，第一个字节 <code>01000001</code> 是可打印的 ASCII 字符，所以不需要改变。第二个字节 <code>11100100</code> 是不可打印的 ASCII 字符，需要转换为 <code>00111101 00001110 00000100</code> (对应的 ASCII 字符为 <code>=E4</code>)，其中 <code>00111101</code> 是字符 “=” 的 ASCII 编码，而 <code>00001110</code> 和 <code>00000100</code> 是将原来的字节 <code>11100100</code> 拆开来，通过对前 4 位和后 4 位高位补 0，各形成了一个新的字节。后面的字节同理。因此 <code>01000001 11100100 10111000 10100101 01000010</code> 经过 Quoted-printable 编码成为 <code>00111101 00111101 00001110 00000100 00111101 00001011 00001000 00111101 00001010 00000101 01000010</code> (对应的 ASCII 字符为 <code>A=E4=B8=A5B</code>)。这样，我们就将 UTF-8 字符串 <code>A严B</code> 转换成了 ASCII 字符串 <code>A=E4=B8=A5B</code>，转换后的字符串中的所有字符都是 ASCII 字符集中的可打印字符。</p>
+<p>再举一个例子，UTF-8 字符串 <code>a=你好</code> 会转换为 ASCII 字符串 <code>a=3D=E4=BD=A0=E5=A5=BD</code>，字符 “a” 保持不变，字符 “=” 转换为 “=3D”，字符 “你” 转换为 “=E4=BD=A0”，字符 “好” 转换为 “=E5=A5=BD”。</p>
+<h3 id="Base64-编码"><a href="#Base64-编码" class="headerlink" title="Base64 编码"></a>Base64 编码</h3><p>所谓 Base64 编码，就是说选出 64 个字符 ---- 小写字母a-z、大写字母A-Z、数字0-9、符号”+”、”/“（再加上作为垫字的”=”，实际上是65个字符） ---- 作为一个基本字符集。然后，其他所有符号都转换成这个字符集中的字符。具体来说，转换方式可以分为四步。</p>
+<ol>
+<li>将每三个字节作为一组，一共是24个二进制位。</li>
+<li>将这24个二进制位分为四组，每个组有6个二进制位。</li>
+<li>在每组前面加两个00，扩展成32个二进制位，即四个字节。</li>
+<li>根据下表，得到扩展后的每个字节的对应符号，这就是Base64的编码值。</li>
+</ol>
+<img src="/2018/09/20/字符编码那些事儿/base64.png">
+<p>举一个具体的实例，演示英语单词Man如何转成Base64编码。</p>
+<ol>
+<li>“M”、”a”、”n”的ASCII值分别是77、97、110，对应的二进制值是01001101、01100001、01101110，将它们连成一个24位的二进制字符串010011010110000101101110。</li>
+<li>将这个24位的二进制字符串分成4组，每组6个二进制位：010011、010110、000101、101110。</li>
+<li>在每组前面加两个00，扩展成32个二进制位，即四个字节：00010011、00010110、00000101、00101110。它们的十进制值分别是19、22、5、46。</li>
+<li>根据上表，得到每个值对应Base64编码，即T、W、F、u。</li>
+</ol>
+<p>如果字节数不足三，则这样处理：</p>
+<ul>
+<li><p>二个字节的情况：将这二个字节的一共16个二进制位，按照上面的规则，转成三组，最后一组除了前面加两个0以外，后面也要加两个0。这样得到一个三位  的Base64编码，再在末尾补上一个”=”号。</p>
+<p>比如，”Ma”这个字符串是两个字节，可以转化成三组00010011、00010110、00010000以后，对应Base64值分别为T、W、E，再补上一个”=”号，因此”Ma”的Base64编码就是TWE=。</p>
+</li>
+<li><p>一个字节的情况：将这一个字节的8个二进制位，按照上面的规则转成二组，最后一组除了前面加二个0以外，后面再加4个0。这样得到一个二位的Base64编码，再在末尾补上两个”=”号。</p>
+<p>比如，”M”这个字母是一个字节，可以转化为二组00010011、00010000，对应的Base64值分别为T、Q，再补上二个”=”号，因此”M”的Base64编码就是TQ==。</p>
+</li>
+</ul>
+<h3 id="用-Javascript-语言进行-Base64-编码"><a href="#用-Javascript-语言进行-Base64-编码" class="headerlink" title="用 Javascript 语言进行 Base64 编码"></a>用 Javascript 语言进行 Base64 编码</h3><p>在 JavaScript 中，有2个函数分别用来处理解码和编码base64 字符串：</p>
+<ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/WindowBase64/atob" target="_blank" rel="noopener">atob()</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/WindowBase64/btoa" target="_blank" rel="noopener">btoa()</a></li>
+</ul>
+<p>btoa() 用于将 ASCII 字符串或二进制数据编码为 Base64 字符串，atob() 用于将 Base64 字符串解码为 ASCII 字符串或二进制数据，这两个方法只能用于转码 ASCII 字符集中的字符，对于不属于 ASCII 字符集中的字符，使用这两个方法会报错。</p>
+<p>由于 JavaScript 内部的字符串都以 UTF-16 的形式进行保存的，所以如果有字符超出了 8 位 ASCII 编码的字符范围时，在大多数的浏览器中对Unicode字符串调用 window.btoa 将会造成一个 Character Out Of Range 的异常。有 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/WindowBase64/Base64_encoding_and_decoding#The_.22Unicode_Problem.22" target="_blank" rel="noopener">两种方法</a> 解决这个问题：</p>
+<ul>
+<li>第一种方法：先用 <code>encodeURIComponent()</code> 转义整个字符串，然后再编码。</li>
+<li>第二种方法：先将 UTF-16 的 DOMString 转码为 UTF-8 的字符数组，然后再编码。</li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://www.cnblogs.com/skynet/archive/2011/05/03/2035105.html" target="_blank" rel="noopener">字符集和字符编码（Charset &amp; Encoding）</a><br><a href="http://www.ruanyifeng.com/blog/2008/06/base64.html" target="_blank" rel="noopener">Base64笔记</a><br><a href="http://javascript.ruanyifeng.com/grammar/string.html#toc5" target="_blank" rel="noopener">JavaScript 标准参考教程 / 字符串</a><br><a href="http://javascript.ruanyifeng.com/bom/window.html#toc43" target="_blank" rel="noopener">JavaScript 标准参考教程 / window 对象</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/WindowBase64/Base64_encoding_and_decoding" target="_blank" rel="noopener">Base64的编码与解码</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/19/函数柯里化的应用/" rel="next" title="函数柯里化的应用">
+                <i class="fa fa-chevron-left"></i> 函数柯里化的应用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">zeronic</p>
+              <p class="site-description motion-element" itemprop="description">Welcome to my blog</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#字符集和字符编码"><span class="nav-number">1.</span> <span class="nav-text">字符集和字符编码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ASCII-字符集和字符编码"><span class="nav-number">1.1.</span> <span class="nav-text">ASCII 字符集和字符编码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GB2312-字符集和字符编码"><span class="nav-number">1.2.</span> <span class="nav-text">GB2312 字符集和字符编码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Unicode-字符集和字符编码"><span class="nav-number">1.3.</span> <span class="nav-text">Unicode 字符集和字符编码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript-字符集"><span class="nav-number">2.</span> <span class="nav-text">JavaScript 字符集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#URL-的编码和解码"><span class="nav-number">3.</span> <span class="nav-text">URL 的编码和解码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文本格式与二进制格式"><span class="nav-number">4.</span> <span class="nav-text">文本格式与二进制格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编码转换方式"><span class="nav-number">5.</span> <span class="nav-text">编码转换方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Quoted-printable-编码"><span class="nav-number">5.1.</span> <span class="nav-text">Quoted-printable 编码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Base64-编码"><span class="nav-number">5.2.</span> <span class="nav-text">Base64 编码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用-Javascript-语言进行-Base64-编码"><span class="nav-number">5.3.</span> <span class="nav-text">用 Javascript 语言进行 Base64 编码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">6.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zeronic</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

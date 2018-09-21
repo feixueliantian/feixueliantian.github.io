@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="函数柯里化，就是将一个接受多个参数的函数转化为接受单一参数的函数的技术。 123456789101112131415function curry (func) &amp;#123;  const args = Array.prototype.slice.call(arguments, 1)  return function () &amp;#123;    const args2 = Array.prototyp">
+<meta name="description" content="函数柯里化，就是将一个接受多个参数的函数转化为接受单一参数的函数的技术。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="函数柯里化的应用">
 <meta property="og:url" content="http://yoursite.com/2018/09/19/函数柯里化的应用/index.html">
 <meta property="og:site_name" content="zeronic">
-<meta property="og:description" content="函数柯里化，就是将一个接受多个参数的函数转化为接受单一参数的函数的技术。 123456789101112131415function curry (func) &amp;#123;  const args = Array.prototype.slice.call(arguments, 1)  return function () &amp;#123;    const args2 = Array.prototyp">
+<meta property="og:description" content="函数柯里化，就是将一个接受多个参数的函数转化为接受单一参数的函数的技术。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-19T08:33:01.000Z">
+<meta property="og:updated_time" content="2018-09-19T08:37:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="函数柯里化的应用">
-<meta name="twitter:description" content="函数柯里化，就是将一个接受多个参数的函数转化为接受单一参数的函数的技术。 123456789101112131415function curry (func) &amp;#123;  const args = Array.prototype.slice.call(arguments, 1)  return function () &amp;#123;    const args2 = Array.prototyp">
+<meta name="twitter:description" content="函数柯里化，就是将一个接受多个参数的函数转化为接受单一参数的函数的技术。">
 
 
 
@@ -347,6 +347,7 @@
 
       
         <p>函数柯里化，就是将一个接受多个参数的函数转化为接受单一参数的函数的技术。</p>
+<a id="more"></a>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">curry</span> (<span class="params">func</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> args = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> args2 = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>)</span><br><span class="line">    func.call(<span class="keyword">this</span>, args.concat(args2))</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span> (<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x + y</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> add3 = curry(add, <span class="number">3</span>)</span><br><span class="line">add3(<span class="number">2</span>) <span class="comment">// 5</span></span><br></pre></td></tr></table></figure>
 <p>以上代码中，<code>add3</code> 就是经过柯里化之后的函数。<code>add3</code> 可以理解成是 <code>add</code> 函数的柯里化版本，当调用 <code>add3(2)</code> 时，相当于调用 <code>add(3, 2)</code>。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">curry</span> (<span class="params">func</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// func.length 返回 func 函数定义中形式参数的数量</span></span><br><span class="line">  <span class="keyword">var</span> arity = func.length</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> args = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>)</span><br><span class="line">    <span class="keyword">if</span> (args.length &gt;= arity) &#123;</span><br><span class="line">      <span class="comment">// 实参数量满足形参的情况</span></span><br><span class="line">      func.call(<span class="literal">null</span>, args)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="comment">// 实参数量少于形参的情况</span></span><br><span class="line">      <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> args2 = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>)</span><br><span class="line">        func.call(<span class="literal">null</span>, args.concat(args2))</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span> (<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x + y</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> addCurry = curry(add)</span><br><span class="line">addCurry(<span class="number">3</span>, <span class="number">2</span>) <span class="comment">// 5</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> add3 = addCurry(<span class="number">3</span>)</span><br><span class="line">add3(<span class="number">2</span>) <span class="comment">// 5</span></span><br></pre></td></tr></table></figure>
@@ -391,6 +392,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/20/字符编码那些事儿/" rel="prev" title="字符编码那些事儿">
+                字符编码那些事儿 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -458,7 +463,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
