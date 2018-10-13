@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="github,ssh," />
+  <meta name="keywords" content="babel," />
 
 
 
@@ -79,25 +79,18 @@
 
 
 
-<meta name="description" content="SSH 是一种安全的通信协议，一般用来远程登录服务器。本地 Git 仓库和 GitHub 仓库之间的传输也可以使用 SSH 协议。在 GitHub 上，需要配置 SSH 公钥信息，这样每次在本地和 GitHub 进行传输的时候，就不需要提供密码了。">
-<meta name="keywords" content="github,ssh">
+<meta name="description" content="Babel 通过语法转换器支持最新版本的 JavaScript。 这些插件允许你立刻使用新语法，无需等待浏览器支持。">
+<meta name="keywords" content="babel">
 <meta property="og:type" content="article">
-<meta property="og:title" content="GitHub 服务器上配置 SSH 公钥">
-<meta property="og:url" content="http://yoursite.com/2018/08/19/GitHub-服务器上配置-SSH-公钥/index.html">
+<meta property="og:title" content="Babel 学习笔记">
+<meta property="og:url" content="http://yoursite.com/2018/10/13/Babel-学习笔记/index.html">
 <meta property="og:site_name" content="zeronic">
-<meta property="og:description" content="SSH 是一种安全的通信协议，一般用来远程登录服务器。本地 Git 仓库和 GitHub 仓库之间的传输也可以使用 SSH 协议。在 GitHub 上，需要配置 SSH 公钥信息，这样每次在本地和 GitHub 进行传输的时候，就不需要提供密码了。">
+<meta property="og:description" content="Babel 通过语法转换器支持最新版本的 JavaScript。 这些插件允许你立刻使用新语法，无需等待浏览器支持。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2018/08/19/GitHub-服务器上配置-SSH-公钥/ssh-1.png">
-<meta property="og:image" content="http://yoursite.com/2018/08/19/GitHub-服务器上配置-SSH-公钥/ssh-2.png">
-<meta property="og:image" content="http://yoursite.com/2018/08/19/GitHub-服务器上配置-SSH-公钥/ssh-3.png">
-<meta property="og:image" content="http://yoursite.com/2018/08/19/GitHub-服务器上配置-SSH-公钥/ssh-4.png">
-<meta property="og:image" content="http://yoursite.com/2018/08/19/GitHub-服务器上配置-SSH-公钥/ssh-5.png">
-<meta property="og:image" content="http://yoursite.com/2018/08/19/GitHub-服务器上配置-SSH-公钥/ssh-6.png">
-<meta property="og:updated_time" content="2018-08-24T11:50:20.000Z">
+<meta property="og:updated_time" content="2018-10-13T03:33:29.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="GitHub 服务器上配置 SSH 公钥">
-<meta name="twitter:description" content="SSH 是一种安全的通信协议，一般用来远程登录服务器。本地 Git 仓库和 GitHub 仓库之间的传输也可以使用 SSH 协议。在 GitHub 上，需要配置 SSH 公钥信息，这样每次在本地和 GitHub 进行传输的时候，就不需要提供密码了。">
-<meta name="twitter:image" content="http://yoursite.com/2018/08/19/GitHub-服务器上配置-SSH-公钥/ssh-1.png">
+<meta name="twitter:title" content="Babel 学习笔记">
+<meta name="twitter:description" content="Babel 通过语法转换器支持最新版本的 JavaScript。 这些插件允许你立刻使用新语法，无需等待浏览器支持。">
 
 
 
@@ -127,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/08/19/GitHub-服务器上配置-SSH-公钥/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/10/13/Babel-学习笔记/"/>
 
 
 
 
 
-  <title>GitHub 服务器上配置 SSH 公钥 | zeronic</title>
+  <title>Babel 学习笔记 | zeronic</title>
   
 
 
@@ -260,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/19/GitHub-服务器上配置-SSH-公钥/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/13/Babel-学习笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zeronic">
@@ -277,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">GitHub 服务器上配置 SSH 公钥</h1>
+          <h1 class="post-title" itemprop="name headline">Babel 学习笔记</h1>
         
 
         <div class="post-meta">
@@ -289,8 +282,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-19T14:41:11+08:00">
-                2018-08-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-13T10:47:54+08:00">
+                2018-10-13
               </time>
             
 
@@ -312,8 +305,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/服务器/" itemprop="url" rel="index">
-                    <span itemprop="name">服务器</span>
+                  <a href="/categories/工具/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
                   </a>
                 </span>
 
@@ -354,26 +347,34 @@
       
 
       
-        <p>SSH 是一种安全的通信协议，一般用来远程登录服务器。本地 Git 仓库和 GitHub 仓库之间的传输也可以使用 SSH 协议。在 GitHub 上，需要配置 SSH 公钥信息，这样每次在本地和 GitHub 进行传输的时候，就不需要提供密码了。</p>
+        <p>Babel 通过语法转换器支持最新版本的 JavaScript。 这些插件允许你立刻使用新语法，无需等待浏览器支持。</p>
 <a id="more"></a>
-<h2 id="本地生成-SSH-公钥和私钥"><a href="#本地生成-SSH-公钥和私钥" class="headerlink" title="本地生成 SSH 公钥和私钥"></a>本地生成 SSH 公钥和私钥</h2><p>在命令行输入以下命令，生成 SSH 的公钥和私钥。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">"xxxxx@xxxxx.com"</span> <span class="comment"># 这里最好填写你注册 github 的邮箱</span></span><br></pre></td></tr></table></figure>
-<p>创建的公钥和私钥，会保存到 ~/.ssh 目录下。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ls ~/.ssh</span><br><span class="line">id_rsa		id_rsa.pub	known_hosts</span><br></pre></td></tr></table></figure>
-<p>id_rsa 是私钥，id_rsa.pub 是公钥。通过以下命令查看公钥内容。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cat ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
-<h2 id="GitHub-上添加公钥"><a href="#GitHub-上添加公钥" class="headerlink" title="GitHub 上添加公钥"></a>GitHub 上添加公钥</h2><p>登录之后，点击右上角用户头像，点击 Settings 选项。</p>
-<img src="/2018/08/19/GitHub-服务器上配置-SSH-公钥/ssh-1.png">
-<p>点击左侧导航栏的 SSH and GPG keys 选项。</p>
-<img src="/2018/08/19/GitHub-服务器上配置-SSH-公钥/ssh-2.png">
-<p>点击 New SSH key 按钮。</p>
-<img src="/2018/08/19/GitHub-服务器上配置-SSH-公钥/ssh-3.png">
-<p>将本机的 SSH 公钥复制粘贴到 GitHub 上，然后点击 Add SSH key。</p>
-<img src="/2018/08/19/GitHub-服务器上配置-SSH-公钥/ssh-4.png">
-<p>输入 GitHub 账号的密码。</p>
-<img src="/2018/08/19/GitHub-服务器上配置-SSH-公钥/ssh-5.png">
-<p>到此，已经设置好了 SSH Keys 了。</p>
-<img src="/2018/08/19/GitHub-服务器上配置-SSH-公钥/ssh-6.png">
+<h2 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h2><ol>
+<li><p>新建项目目录，初始化 npm</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir learn-babel &amp;&amp; <span class="built_in">cd</span> learn-babel</span><br><span class="line">npm init -y</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在项目根目录下安装 Babel</p>
+<p>每年每个 preset (es2015) 只编译当年批准的内容。 而 babel-preset-env 相当于 es2015 ，es2016 ，es2017 及最新版本。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install babel-cli babel-preset-env -D</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装 babel-polyfill</p>
+<p>由于 Babel 只转换语法(如箭头函数)，不转换新的 API。你可以使用 <code>babel-polyfill</code> 支持新的 API，例如全局变量 Promise Set Map 等 、原生方法如 String.padStart (left-pad) 等。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install babel-polyfill</span><br></pre></td></tr></table></figure>
+<p>使用它时需要在你应用程序的入口点顶部或打包配置中引入 <code>babel-polyfill</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'babel-polyfill'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> foo = <span class="keyword">new</span> <span class="built_in">Set</span>()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在项目根目录下创建 <code>.babelrc</code> 配置文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch .babelrc</span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/* .babelrc */</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  <span class="attr">"presets"</span>: [<span class="string">"env"</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改 package.json 文件</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">"scripts": &#123;</span><br><span class="line">  "build": "babel src -d lib -s"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在命令行使用 Babel 进行转码</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run build</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">babel script.js</span><br><span class="line">babel script.js -o script-compiled.js</span><br><span class="line">babel src -d lib</span><br><span class="line">babel src -d lib -s <span class="comment">#生成 source-map</span></span><br><span class="line">babel src --watch -d lib</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -391,9 +392,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/github/" rel="tag"># github</a>
-          
-            <a href="/tags/ssh/" rel="tag"># ssh</a>
+            <a href="/tags/babel/" rel="tag"># babel</a>
           
         </div>
       
@@ -406,15 +405,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/10/09/Gulp-学习笔记/" rel="next" title="Gulp 学习笔记">
+                <i class="fa fa-chevron-left"></i> Gulp 学习笔记
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/08/19/Hexo-搭建-GitHub-静态博客/" rel="prev" title="Hexo 搭建 GitHub 静态博客">
-                Hexo 搭建 GitHub 静态博客 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -546,7 +545,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#本地生成-SSH-公钥和私钥"><span class="nav-number">1.</span> <span class="nav-text">本地生成 SSH 公钥和私钥</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GitHub-上添加公钥"><span class="nav-number">2.</span> <span class="nav-text">GitHub 上添加公钥</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本使用"><span class="nav-number">1.</span> <span class="nav-text">基本使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用指令"><span class="nav-number">2.</span> <span class="nav-text">常用指令</span></a></li></ol></div>
             
 
           </div>
