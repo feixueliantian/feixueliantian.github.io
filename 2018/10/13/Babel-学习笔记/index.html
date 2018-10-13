@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="zeronic">
 <meta property="og:description" content="Babel 通过语法转换器支持最新版本的 JavaScript。 这些插件允许你立刻使用新语法，无需等待浏览器支持。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-13T03:33:29.000Z">
+<meta property="og:updated_time" content="2018-10-13T03:40:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Babel 学习笔记">
 <meta name="twitter:description" content="Babel 通过语法转换器支持最新版本的 JavaScript。 这些插件允许你立刻使用新语法，无需等待浏览器支持。">
@@ -360,7 +360,7 @@
 <li><p>安装 babel-polyfill</p>
 <p>由于 Babel 只转换语法(如箭头函数)，不转换新的 API。你可以使用 <code>babel-polyfill</code> 支持新的 API，例如全局变量 Promise Set Map 等 、原生方法如 String.padStart (left-pad) 等。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install babel-polyfill</span><br></pre></td></tr></table></figure>
-<p>使用它时需要在你应用程序的入口点顶部或打包配置中引入 <code>babel-polyfill</code></p>
+<p>使用它时需要在你应用程序的入口点顶部或打包配置中引入 <code>babel-polyfill</code>，它会为新的 API 引入新的全局变量，例如 Promise Set Map 等。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'babel-polyfill'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> foo = <span class="keyword">new</span> <span class="built_in">Set</span>()</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>在项目根目录下创建 <code>.babelrc</code> 配置文件</p>
